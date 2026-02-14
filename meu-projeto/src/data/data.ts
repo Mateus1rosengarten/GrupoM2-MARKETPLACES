@@ -1,168 +1,261 @@
 import { Variants } from "framer-motion";
 import {
-  CarouselSlide,
   FaqItem,
   FeaturesIncluded,
-  FeaturesNotIncluded,
   PlanCardData,
   ServiceCardProps,
-  TechCarouselIcon,
 } from "./types";
+import { sendWhatsApp } from "../utils/whatsapp";
 
-// ABOUT SECTION
+// BUTTONS CONTACT
+export const WHATSAPP_MESSAGES = {
+  diagnosticoGratuito:
+    "Olá! Gostaria de solicitar um diagnóstico gratuito para entender melhor como posso melhorar meus resultados digitais.",
+  saberMaisGestao:
+    "Olá! Gostaria de saber mais sobre os serviços de gestão e como vocês podem ajudar a estruturar e escalar meu negócio.",
 
-export const techsCarouselItems: TechCarouselIcon[] = [
-  { src: "/images/techCarousel/react.svg", name: "React" },
-  { src: "/images/techCarousel/nodejs.svg", name: "Node.js" },
-  { src: "/images/techCarousel/analytics.svg", name: "Google Analytics" },
-  { src: "/images/techCarousel/ads.svg", name: "Google Ads" },
-  { src: "/images/techCarousel/adobe.svg", name: "Photoshop" },
-  { src: "/images/techCarousel/meta.svg", name: "Meta" },
-  { src: "/images/techCarousel/figma.svg", name: "Figma" },
-  { src: "/images/techCarousel/aws.svg", name: "AWS" },
-  { src: "/images/techCarousel/ableton.svg", name: "Ableton" },
+  saberMaisSuporteFinanceiro:
+    "Olá! Tenho interesse de entender como vocês auxiliam no meio financeiro no controle e na tomada de decisões do negócio.",
+  saberMaisOtimizaçãoAnuncios:
+    "Olá! Gostaria de saber mais sobre o serviço de otimização de anúncios para melhorar performance e escalar vendas.",
+  saberMaisTrafegoPago:
+    "Olá! Tenho interesse em tráfego pago e gostaria de entender como vocês trabalham nas campanhas.",
+
+  saberMaisGestaoMarca:
+    "Olá! Gostaria de saber mais sobre gestão de marca e posicionamento estratégico no mercado.",
+
+  saberMaisOutros:
+    "Olá! Gostaria de conversar sobre uma necessidade digital específica e entender como vocês podem me ajudar.",
+
+  orcamentoEssencial:
+    "Olá! Tenho interesse no Plano Essencial e gostaria de receber mais informações sobre valores e escopo do serviço.",
+
+  orcamentoTurbo:
+    "Olá! Tenho interesse no Plano Turbo e gostaria de entender como ele pode acelerar os resultados do meu negócio.",
+
+  orcamentoElite:
+    "Olá! Tenho interesse no Plano Elite e gostaria de conhecer todos os diferenciais e benefícios inclusos.",
+};
+
+// SERVICE SECTION
+
+export const serviceCardVariants: Variants = {
+  hidden: { opacity: 0, y: 200 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+export const serviceCards: ServiceCardProps[] = [
+  {
+    image: "/images/serviceCard/marketplace.png",
+    title: "Gestão Estratégica de Marketplaces",
+    description:
+      "Administração completa e orientada por dados das operações dos maiores Marketplaces com foco em performance, escala e sustentabilidade financeira do negócio.",
+    features: [
+      "Design responsivo e moderno",
+      "Uso das mais avançadas tecnologias",
+      "Performance otimizada para carregamento ágil",
+      "Suporte e manutenção inclusos",
+    ],
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.saberMaisGestao),
+  },
+  {
+    image: "/images/serviceCard/financeiro.png",
+    title: "Controladoria Financeira Empresarial",
+    description:
+      "Gestão financeira constante e estratégica que mapeie o fluxo de caixa, orienta decisões com dados gerenciais, aumentando o lucro e reduzindo custos desnecessários.",
+    features: [
+      "Design responsivo e moderno",
+      "Uso das mais avançadas tecnologias",
+      "Performance otimizada para carregamento ágil",
+      "Suporte e manutenção inclusos",
+    ],
+    handleOnClick: () =>
+      sendWhatsApp(WHATSAPP_MESSAGES.saberMaisSuporteFinanceiro),
+  },
+  {
+    image: "/images/serviceCard/web.jpeg",
+    title: "Arquitetura e Otimização de Anúncios",
+    description:
+      "Estruturação avançada de anúncios, SEO interno, variações estratégicas, posicionamento competitivo,analise de mercado e otimização contínua para aumento de conversão e ranking.",
+    features: [
+      "Design responsivo e moderno",
+      "Uso das mais avançadas tecnologias",
+      "Performance otimizada para carregamento ágil",
+      "Suporte e manutenção inclusos",
+    ],
+    handleOnClick: () =>
+      sendWhatsApp(WHATSAPP_MESSAGES.saberMaisOtimizaçãoAnuncios),
+  },
+  {
+    image: "/images/serviceCard/meta.jpeg",
+    title: "Gestão de Tráfego Pago em Marketplaces",
+    description:
+      "Planejamento, execução e escala de campanhas em Mercado Ads, Shopee Ads e Shein Ads com foco em ROAS, lucro incremental e crescimento previsível.",
+    features: [
+      "Gestão e Monitoramento de Redes Sociais",
+      "Planejamento Estratégico de Conteúdo",
+      "Campanhas Organicas/Pagas Otimizadas",
+      "Relatorios Semanais de Engajamento",
+    ],
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.saberMaisTrafegoPago),
+  },
+  {
+    image: "/images/serviceCard/brand.jpeg",
+    title: "Gestão de Reputação e Posicionamento",
+    description:
+      "Construção e fortalecimento da reputação nas plataformas, com foco em diferenciação competitiva, excelência no atendimento, experiência do cliente e credibilidade percebida.",
+    features: [
+      "Identidade visual única e memorável",
+      "Conexão emocional com seu público-alvo",
+      "Melhora da percepção/reputação da marca",
+      "Otimização da experiência do cliente",
+    ],
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.saberMaisGestaoMarca),
+  },
+  {
+    image: "/images/serviceCard/consultoria.jpeg",
+    title: "Soluções Digitais Personalizadas",
+    description:
+      "Desenvolvimento de soluções sob medida para demandas fora do marketplace, incluindo websites, branding, redes sociais, automações, integrações e projetos estratégicos.",
+    features: [
+      "Diagnóstico completo de sistemas digitais",
+      "Redução de custos operacionais",
+      "Automação de respostas instantâneas",
+      "Identificação de gargalos e melhorias",
+    ],
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.saberMaisOutros),
+  },
 ];
 
 // PLANS SECTION
 
-export const silverInclude: FeaturesIncluded = [
-  {
-    title:
-      "Gerência completa das principais plataformas de marketplace, incluindo todos os serviços disponíveis no plano M2 Essencial.",
-    description:
-      "Desenvolvimento completo de um site moderno, responsivo e otimizado, com até 4 páginas personalizadas para destacar sua marca. Não inclui e-commerce",
-  },
-  {
-    title: "Diagnóstico claro e preciso das necessidades reais do seu negócio",
-    description:
-      "Registro e configuração de um domínio profissional (.com, .com.br, etc.) incluso no pacote, garantindo presença online personalizada.",
-  },
-  {
-    title:
-      "Mapeamento dos pontos fortes e as áreas que necessitam de uma atenção em seu negócio",
-    description:
-      "Configuração estratégica de SEO para melhorar o posicionamento nos mecanismos de busca, além da otimização e gestão do perfil da sua empresa no Google.",
-  },
-  {
-    title:
-      "Construção de um plano estratégico que promove a transição do operacional para uma atuação gerencial no negócio",
-    description:
-      "Suporte contínuo com manutenção técnica, correções e melhorias, além de um relatório mensal sobre o desempenho do site e suporte técnico dedicado para suas dúvidas.",
-  },
-  {
-    title:
-      "Execução do plano estratégico, com análise constante do mercado para implementação de estratégias garantindo resultados de curto a longo prazo",
-    description: "sadasd",
-  },
-  {
-    title:
-      "Definição de metas reais a serem alcançadas, buscando crescimento sustentável com base em dados gerenciais e ferramentas de IA",
-    description:
-      "Sessão fotográfica com edição profissional para destacar seu negócio e produtos no inicio do plano (1x)",
-  },
-];
-
-// export const liteNotInclude: FeaturesNotIncluded = [
-//   "Estratégias avançadas de SEO e Google Ads",
-//   "Gestão de marketing digital para redes sociais(post + storys)",
-//   "Consultoria e automação digital sob medida",
-//   "Campanhas digitais avançadas de publicidade e marketing",
-//   "Gestão completa de branding com análise de resultados",
-//   "Produção personalizada de áudio e audiovisual",
-// ];
-
-export const liteInclude: FeaturesIncluded = [
+export const essencial: FeaturesIncluded = [
   {
     title:
       "Presença nos maiores marketplaces, como Mercado Livre, Magalu, Shopee, Shein entre outros",
     description:
-      "Desenvolvimento completo de um site moderno, responsivo e otimizado, com até 8 páginas personalizadas para destacar sua marca. Não inclui e-commerce",
+      "Estruturação e gestão da presença da marca nos principais marketplaces, incluindo configuração de contas, padronização operacional e adequação às regras de cada plataforma",
   },
   {
     title: "Registro e catalogo de forma estratégica dos produtos",
     description:
-      "Registro e configuração de um domínio profissional (.com, .com.br, etc.) incluso no pacote, garantindo presença online personalizada.",
+      "Cadastro estruturado de produtos com títulos otimizados, descrições estratégicas, categorização correta e organização de variações visando melhor conversão e visibilidade.",
   },
   {
     title:
       "Criação de modelo de crescimento personalizado a partir de análise e dados do mercado",
     description:
-      "Configuração estratégica de SEO para melhorar o posicionamento nos mecanismos de busca, além da otimização e gestão do perfil da sua empresa no Google.",
+      "Análise de mercado, concorrência e indicadores para definição de um modelo de crescimento personalizado, orientado por dados e alinhado aos objetivos do negócio.",
   },
   {
     title: "Modelos de precificação e diferenciação frente aos concorrentes",
     description:
-      "Suporte contínuo com manutenção técnica, correções e melhorias, além de um relatório mensal sobre o desempenho do site e suporte técnico dedicado para suas dúvidas.",
+      "Definição de estratégias de precificação baseadas em custos, taxas, margem e posicionamento competitivo, buscando diferenciação sustentável frente aos concorrentes.",
   },
   {
     title:
       "Estratégias para construção de reputação e aumento de avaliações positivas",
     description:
-      "Sessões fotográficas sazonais com edição profissional para atualizar o visual do seu site e redes sociais.",
+      "Implementação de estratégias focadas em reputação, experiência do cliente e pós-venda, visando aumento de avaliações positivas e fortalecimento da credibilidade da marca.",
   },
   {
     title:
       "Gestão e acompanhamento de pedidos, trocas e suporte ao consumidor final",
     description:
-      "Sessões fotográficas sazonais com edição profissional para atualizar o visual do seu site e redes sociais.",
+      "Acompanhamento operacional de pedidos, trocas e atendimento ao cliente, garantindo cumprimento de prazos, qualidade no suporte e redução de impactos negativos.",
   },
 
   {
     title: "Relatórios de desempenho e faturamento",
     description:
-      "Sessões fotográficas sazonais com edição profissional para atualizar o visual do seu site e redes sociais.",
+      "Geração de relatórios periódicos com indicadores de desempenho, vendas e faturamento, apoiando análises estratégicas e decisões orientadas por resultados.",
   },
 
   {
     title: "Suporte dedicado via WhatsApp",
     description:
-      "Sessões fotográficas sazonais com edição profissional para atualizar o visual do seu site e redes sociais.",
+      "Canal direto de suporte via WhatsApp para alinhamentos operacionais, esclarecimento de dúvidas e acompanhamento contínuo das atividades do marketplace.",
   },
 ];
 
-// export const silverNotInclude: FeaturesNotIncluded = [
-//   "Consultoria e automação digital sob medida",
-//   "Campanhas digitais avançadas de publicidade e marketing",
-//   "Gestão completa de branding com análise de resultados",
-//   "Produção personalizada de áudio e audiovisual",
-// ];
-
-export const goldInclude: FeaturesIncluded = [
+export const turbo: FeaturesIncluded = [
   {
     title:
       "Gerência completa das principais plataformas de marketplace, incluindo todos os serviços disponíveis no plano M2 Essencial.",
     description:
-      "Desenvolvimento completo de um site moderno, responsivo e otimizado, com até 12 páginas personalizadas para destacar sua marca. Não inclui e-commerce",
+      "Gestão integral das operações nos principais marketplaces, abrangendo estratégia, performance, operação, reputação, indicadores e todos os serviços contemplados no plano Essencial.",
+  },
+  {
+    title: "Diagnóstico claro e preciso das necessidades reais do seu negócio",
+    description:
+      "Análise detalhada do cenário atual da operação, identificando gargalos, oportunidades, riscos e prioridades estratégicas para orientar decisões mais assertivas.",
+  },
+  {
+    title:
+      "Mapeamento dos pontos fortes e as áreas que necessitam de uma atenção em seu negócio",
+    description:
+      "Avaliação estruturada dos processos, indicadores e resultados, destacando pontos fortes, fragilidades operacionais e áreas críticas que demandam atenção imediata.",
+  },
+  {
+    title:
+      "Construção de um plano estratégico que promove a transição do operacional para uma atuação gerencial no negócio",
+    description:
+      "Desenvolvimento de um plano estratégico orientado por dados, com foco em organização, eficiência e evolução da operação para um modelo de gestão estruturado.",
+  },
+  {
+    title:
+      "Execução do plano estratégico, com análise constante do mercado para implementação de estratégias garantindo resultados de curto a longo prazo",
+    description:
+      "Execução contínua do plano definido, com monitoramento de mercado, ajustes estratégicos e implementação de ações visando resultados consistentes e sustentáveis.",
+  },
+  {
+    title:
+      "Definição de metas reais a serem alcançadas, buscando crescimento sustentável com base em dados gerenciais e ferramentas de IA",
+    description:
+      "Estabelecimento de metas realistas e mensuráveis, fundamentadas em dados gerenciais, histórico da operação e apoio de ferramentas analíticas e inteligência artificial.",
+  },
+];
+
+export const elite: FeaturesIncluded = [
+  {
+    title:
+      "Gerência completa das principais plataformas de marketplace, incluindo todos os serviços disponíveis no plano M2 Essencial.",
+    description:
+      "Gestão estratégica e operacional completa das principais plataformas de marketplace, contemplando performance, reputação, indicadores, decisões gerenciais e todos os serviços do plano Essencial.",
   },
   {
     title:
       "Consultoria Financeira completa e continua incluindo todos os serviços disponíveis no plano M2 Turbo",
     description:
-      "Registro e configuração de um domínio profissional (.com, .com.br, etc.) incluso no pacote, garantindo presença online personalizada.",
+      "Consultoria financeira contínua aplicada ao marketplace, incluindo controle de fluxo de caixa, conciliações, análise de margem, precificação e suporte estratégico para decisões financeiras.",
   },
   {
     title:
       "Gestão de redes sociais, garantindo presença ativa onde seu público está",
     description:
-      "Configuração estratégica de SEO para melhorar o posicionamento nos mecanismos de busca, além da otimização e gestão do perfil da sua empresa no Google.",
+      "Planejamento, gestão e acompanhamento de redes sociais com foco em posicionamento da marca, consistência de comunicação e fortalecimento da presença digital.",
   },
   {
     title:
       "Criação de sites com otimização para buscas, fortalecendo a credibilidade da sua empresa",
     description:
-      "Suporte contínuo com manutenção técnica, correções e melhorias, além de um relatório mensal sobre o desempenho do site e suporte técnico dedicado para suas dúvidas.",
+      "Desenvolvimento e gestão de sites institucionais otimizados para mecanismos de busca, focados em credibilidade, autoridade digital e suporte à estratégia da marca.",
   },
   {
     title:
       "Desenvolvimento de automações digitais para facilitar atendimentos e processos, tornando a operação mais rápida, organizada e eficiente.",
     description:
-      "Sessões fotográficas bimestrais com edição profissional para manter sua comunicação visual sempre atualizada e de alta qualidade.",
+      "Criação de automações e integrações digitais para otimização de processos internos, atendimento ao cliente e organização operacional, aumentando eficiência e escalabilidade.",
   },
   {
     title:
       "Estratégias de autoridade da marca, revisando identidade visual e posicionamento para consolidar seu negocio.",
     description:
-      "Planejamento e execução de campanhas publicitárias com foco em performance, combinando SEO e anúncios no Google Ads para atrair clientes qualificados com maior retorno sobre investimento.",
+      "Desenvolvimento de estratégias de autoridade e posicionamento de marca, incluindo análise de identidade visual, comunicação e percepção para consolidação no mercado.",
   },
 ];
 
@@ -173,23 +266,26 @@ export const planCards: PlanCardData[] = [
     newPrice: "980",
     description:
       "Mais do que simplesmente anunciar: você passa a atuar nos principais marketplaces com estratégia, posicionamento e autoridade, construindo base de clientes e faturamento sustentável.",
-    featuresIncluded: liteInclude,
+    featuresIncluded: essencial,
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.orcamentoEssencial),
   },
   {
     title: "M2 TURBO",
-    oldPrice: "1199",
-    newPrice: "999",
+    oldPrice: "1600",
+    newPrice: "1250",
     description:
       "Além de tudo incluido no MarketPlate Essential, você passa a ter uma experiencia integrada do negócio, unindo operação e financeiro. Com gestão centralizada e consultoria direcionada.",
-    featuresIncluded: silverInclude,
+    featuresIncluded: turbo,
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.orcamentoTurbo),
   },
   {
     title: "M2 ELITE",
-    oldPrice: "1799",
-    newPrice: "1499",
+    oldPrice: "2500",
+    newPrice: "2200",
     description:
       "Gestão completa do seu negócio, atuando em múltiplas frentes e centralizando tudo em um controle integrado. Unimos dados  e transformamos em estratégia e execução prática,",
-    featuresIncluded: goldInclude,
+    featuresIncluded: elite,
+    handleOnClick: () => sendWhatsApp(WHATSAPP_MESSAGES.orcamentoElite),
   },
 ];
 
@@ -214,146 +310,47 @@ export const planCardVariants: Variants = {
   },
 };
 
-// SERVICE SECTION
-
-export const serviceCardVariants: Variants = {
-  hidden: { opacity: 0, y: 200 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-export const serviceCards: ServiceCardProps[] = [
-  {
-    image: "/images/serviceCard/marketplace.png",
-    title: "Gerenciamento Marketplace",
-    description:
-      "Esteja nas principais plataformas de marketplace com uma gestão profissional que otimiza anúncios, impulsiona vendas e gera crescimento.",
-    features: [
-      "Design responsivo e moderno",
-      "Uso das mais avançadas tecnologias",
-      "Performance otimizada para carregamento ágil",
-      "Suporte e manutenção inclusos",
-    ],
-  },
-  {
-    image: "/images/serviceCard/financeiro.png",
-    title: "Consultoria Financeira",
-    description:
-      "Tenha uma gestão financeira estratégica que mapeie o fluxo de caixa, orienta decisões com dados gerenciais, aumentando o lucro e reduzindo custos desnecessários.",
-    features: [
-      "Design responsivo e moderno",
-      "Uso das mais avançadas tecnologias",
-      "Performance otimizada para carregamento ágil",
-      "Suporte e manutenção inclusos",
-    ],
-  },
-  {
-    image: "/images/serviceCard/web.jpeg",
-    title: "Criação de Website + SEO",
-    description:
-      "Crie um site como portal digital do seu negócio, fortalecendo a credibilidade da sua marca e potencializando resultados em plataformas de venda com SEO e Google Ads.",
-    features: [
-      "Design responsivo e moderno",
-      "Uso das mais avançadas tecnologias",
-      "Performance otimizada para carregamento ágil",
-      "Suporte e manutenção inclusos",
-    ],
-  },
-  {
-    image: "/images/serviceCard/meta.jpeg",
-    title: "Marketing Digital & Redes Sociais",
-    description:
-      "Engaje seu público alvo, aumente sua presenca nas midias sociais e gere resultados.Esteja onde seu pulico se encontra e deixe sua marca.",
-    features: [
-      "Gestão e Monitoramento de Redes Sociais",
-      "Planejamento Estratégico de Conteúdo",
-      "Campanhas Organicas/Pagas Otimizadas",
-      "Relatorios Semanais de Engajamento",
-    ],
-  },
-  {
-    image: "/images/serviceCard/brand.jpeg",
-    title: "Branding e Rebranding",
-    description:
-      "Gestão analitica para construir ou fortalecer e renovar a identidade visual da sua marca conectando-se mais ao seu publico alvo",
-    features: [
-      "Identidade visual única e memorável",
-      "Conexão emocional com seu público-alvo",
-      "Melhora da percepção/reputação da marca",
-      "Otimização da experiência do cliente",
-    ],
-  },
-  {
-    image: "/images/serviceCard/consultoria.jpeg",
-    title: "Consultoria &  Automação Digital",
-    description:
-      "Analisamos e automatizamos sistemas digitais para aumentar eficiência, reduzir custos e otimizar o atendimento ao cliente, com desenvolvimento de aplicativos sob medida quando necessário.",
-    features: [
-      "Diagnóstico completo de sistemas digitais",
-      "Redução de custos operacionais",
-      "Automação de respostas instantâneas",
-      "Identificação de gargalos e melhorias",
-    ],
-  },
-];
-
+// FAQ SECTION
 // FAQ SECTION
 export const faqs: FaqItem[] = [
   {
-    question: "Como faço para contratar algum serviço?",
+    question: "Como funciona o primeiro contato e a contratação?",
     answer:
-      "Você pode nos contratar clicando em qualquer botão de contato espalhado pelo site, usando o formulário ao lado, o WhatsApp ou nossas redes sociais. Após o primeiro contato, alinhamos suas necessidades e iniciamos o projeto.",
+      "O primeiro contato pode ser feito por qualquer canal disponível no site. A partir disso, realizamos um diagnóstico gratuito para entender sua operação e, só então, apresentamos uma proposta personalizada.",
   },
   {
-    question: "Por que investir em presença digital?",
+    question: "O que está incluso no diagnóstico gratuito?",
     answer:
-      "Uma presença digital bem construída — com site, SEO, redes sociais ativas e marketing digital — aumenta sua visibilidade, atrai mais clientes e gera retorno financeiro.",
+      "O diagnóstico consiste em uma análise inicial da sua operação, objetivos, desafios e oportunidades nos marketplaces, servindo como base para definir a melhor estratégia e o plano ideal.",
   },
   {
-    question: "Que tipo de serviços vocês oferecem?",
+    question: "Os planos M2 são fixos ou personalizados?",
     answer:
-      "Oferecemos nossos serviços de forma avulsa via orçamento personalizado ou por meio de planos completos (recomendado), que reúnem tudo o que sua empresa precisa para ter sucesso no digital.",
+      "Os planos Essencial, Turbo e Elite são modelos referenciais. Após o diagnóstico, eles são ajustados e personalizados conforme as necessidades reais do seu negócio.",
   },
   {
-    question: "Posso criar ou personalizar um plano ?",
+    question: "Posso contratar apenas alguns serviços específicos?",
     answer:
-      "Sim! Você pode ajustar ou criar plano, incluindo serviços adicionais ou alterando a frequência e intensidade conforme suas necessidades. Tudo isso pode ser negociado via orçamento personalizado para garantir a melhor solução para sua empresa.",
+      "Sim. É possível contratar serviços específicos ou complementar um plano existente, desde que façam sentido dentro da estratégia definida para a operação.",
   },
   {
-    question: "Terei acompanhamento e suporte constante?",
+    question: "Vocês atuam apenas na operação ou também na estratégia?",
     answer:
-      "Sim! Estamos disponíveis diariamente para responder suas dúvidas e alinhar estratégias. Além disso, entregamos relatórios regulares que mostram os resultados de cada campanha.",
+      "Atuamos de forma estratégica e operacional, acompanhando indicadores, performance, mercado e tomada de decisão para garantir crescimento sustentável.",
   },
   {
-    question: "Como funciona o serviço de website nos planos?",
+    question: "Como funciona o acompanhamento e o suporte?",
     answer:
-      "Criaremos seu site moderno e responsivo, desenvolvido com SEO otimizado para melhor posicionamento. Inclui formulários de contato, botão de acesso ao WhatsApp, imagens de seus produtos e do seu espaço, promoções e outras funcionalidades personalizadas conforme suas necessidades.",
+      "O acompanhamento é contínuo, com suporte dedicado, alinhamentos periódicos e relatórios de desempenho que auxiliam na gestão e nas decisões do negócio.",
   },
-
   {
-    question: "Como funciona o marketing via redes sociais?",
+    question: "Em quanto tempo posso ver resultados?",
     answer:
-      "Estaremos presentes nas redes sociais que você escolher — Instagram, TikTok, Facebook, entre outras — e, através da identidade visual e comunicação estratégica, criaremos conteúdos constantes para gerar engajamento e aumentar a visibilidade da sua empresa..",
+      "Alguns ajustes geram impactos iniciais em curto prazo, porém resultados consistentes e escaláveis são construídos ao longo do médio e longo prazo.",
   },
   {
-    question: "O que é SEO? ( Search Optimizer Enginne )",
+    question: "Posso cancelar o serviço quando quiser?",
     answer:
-      "SEO (Search Engine Optimization) é o conjunto de estratégias para otimizar seu site e conteúdos para que apareçam melhor nos resultados dos buscadores, como o Google. É um trabalho de médio a longo prazo, que normalmente começa a gerar resultados visíveis após alguns meses de aplicação contínua.",
-  },
-];
-
-// CAROUSEL SECTION
-
-export const CarouselSlides: CarouselSlide[] = [
-  {
-    image: "images/sectionsImages/slidec1.png",
-    link: "https://research.hubspot.com",
-  },
-  {
-    image: "images/sectionsImages/slidec1.png",
-    link: "https://research.hubspot.com",
+      "Sim. O contrato pode ser encerrado a qualquer momento, sem aplicação de taxa rescisória.",
   },
 ];

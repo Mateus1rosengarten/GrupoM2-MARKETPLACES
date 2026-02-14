@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
             <Facebook />
           </a>
           <a
-            href="https://www.instagram.com/seuperfil"
+            href="https://www.instagram.com/somosgrupom2"
             target="_blank"
             rel="noopener noreferrer"
           >

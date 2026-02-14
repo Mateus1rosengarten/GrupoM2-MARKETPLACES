@@ -17,27 +17,17 @@ const Navbar: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <div className="w-full flex items-center justify-center px-4 lg:px-6 2xl:px-28">
+        <div className="w-full flex items-center justify-center px-8 lg:px-8 2xl:px-32">
           <div className="flex-shrink-0 mr-auto">
             <Logo />
           </div>
 
           <ul className="hidden md:flex font-inter font-medium text-base sm:space-x-6 lg:space-x-10">
-            <li>
-              <NavLink href="#home">Home</NavLink>
-            </li>
-            <li>
-              <NavLink href="#servicos">Serviços</NavLink>
-            </li>
-            <li>
-              <NavLink href="#sobre">Sobre</NavLink>
-            </li>
-            <li>
-              <NavLink href="#planos">Planos</NavLink>
-            </li>
-            <li>
-              <NavLink href="#contato">Contato</NavLink>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <NavLink href={link.href}>{link.label}</NavLink>
+              </li>
+            ))}
           </ul>
 
           <div className="hidden md:block ml-auto">
@@ -63,3 +53,11 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#planos", label: "Planos" },
+  { href: "#contato", label: "Contato" },
+];

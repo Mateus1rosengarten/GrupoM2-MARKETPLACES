@@ -6,8 +6,9 @@ import Hero from "./sections/Hero";
 import Services from "./sections/Services";
 import About from "./sections/About";
 import Plans from "./sections/Plans";
-import Carousel from "./sections/Carousel";
+
 import Contact from "./sections/Contact";
+import Companys from "./sections/Companys";
 
 function App() {
   return (
@@ -17,7 +18,6 @@ function App() {
       <Services />
       <About />
       <Plans />
-      {/* <Carousel /> */}
       <Contact />
       <Footer />
       <WhatsAppButton />

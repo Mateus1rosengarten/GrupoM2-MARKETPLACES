@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 // DATA TYPES
 export type FeaturesIncluded = { title: string; description: string }[];
-export type FeaturesNotIncluded = string[];
 
 export type FaqItem = {
   question: string;
@@ -15,7 +14,7 @@ export type PlanCardData = {
   newPrice: string;
   description: string;
   featuresIncluded: FeaturesIncluded;
-  featuresNotIncluded?: FeaturesNotIncluded;
+  handleOnClick: () => void;
 };
 
 // COMPONENTS PROPS
@@ -31,11 +30,6 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export interface CarouselSlide {
-  image: string;
-  link: string;
-}
-
 export interface TechCarouselIcon {
   src: string;
   name: string;
@@ -46,6 +40,7 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
+  handleOnClick: () => void;
 }
 
 export interface PlanCardProps extends PlanCardData {}

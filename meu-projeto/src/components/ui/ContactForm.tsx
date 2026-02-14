@@ -1,144 +1,165 @@
-import { useState } from "react";
 import Button from "./Button";
+import {
+  FolderPenIcon,
+  HeadsetIcon,
+  ListCheckIcon,
+  MailCheckIcon,
+  MessageSquareCodeIcon,
+  Phone,
+} from "lucide-react";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  name: string;
+  phone: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 export default function ContactForm() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Formulário enviado:", form);
+  const onSubmit = (data: FormData) => {
+    console.log("Dados do form:", data);
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="max-w-3xl p-6 mx-auto border-t-2 border-b-2 border-l-2 bg-gradient-texture rounded-2xl border-background sm:rounded-bl-2xl sm:rounded-tl-2xl sm:pb-14 sm:pl-16 sm:pr-20 sm:pt-12 lg:rounded-br-none lg:rounded-tr-none lg:p-12 xl:p-20"
+      onSubmit={handleSubmit(onSubmit)}
+      className="relative max-w-3xl p-6 mx-auto border-t-2 border-b-2 border-l-2 bg-white rounded-2xl border-background sm:rounded-bl-2xl sm:rounded-tl-2xl sm:pb-14 sm:pl-16 sm:pr-20 sm:pt-12 lg:rounded-br-none lg:rounded-tr-none lg:p-12 xl:p-20"
     >
-      <h1 className="mb-6 text-xl font-bold text-center font-varela text-foreground sm:text-4xl">
-        ENTRE EM CONTATO
-      </h1>
-      <h2 className="mb-8 text-base text-center font-inter text-foreground sm:text-lg">
-        Estamos prontos para ouvir você! Preencha o formulário e entraremos em
-        contato o mais breve possível.
+      <div className="absolute w-full top-0 right-0 bg-brand text-white px-6 py-4 rounded-tl-xl shadow-lg flex items-center justify-center gap-3">
+        <HeadsetIcon className="w-8 h-8" />
+        <h1 className="text-xl font-bold font-varela sm:text-3xl">
+          FALE COM A GENTE
+        </h1>
+      </div>
+
+      <h2 className="mt-16 sm:mt-8 mb-8 text-base sm:text-center font-inter text-surface sm:text-lg">
+        Estamos prontos para ouvir você! Preencha o formulário e{" "}
+        <span className="font-bold">
+          entraremos em contato o mais breve possível.
+        </span>
       </h2>
 
       <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-2">
         <div>
-          <label
-            htmlFor="name"
-            className="block mb-1 text-sm font-varela text-foreground"
-          >
+          <label className="block mb-1 text-sm font-varela text-background flex gap-2">
+            <FolderPenIcon className="text-brand" />
             Nome
           </label>
           <input
-            type="text"
-            id="name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-background"
+            {...register("name", {
+              required: "Informe seu nome",
+              minLength: { value: 2, message: "Nome muito curto" },
+            })}
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand ${
+              errors.name ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {errors.name && (
+            <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
+          )}
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className="block mb-1 text-sm font-varela text-foreground"
-          >
+          <label className="block mb-1 text-sm font-varela text-black flex gap-2">
+            <Phone className="text-brand" />
             Telefone
           </label>
           <input
-            type="text"
-            id="phone"
-            name="phone"
-            value={form.phone}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-background"
+            {...register("phone", {
+              required: "Telefone é obrigatório",
+              minLength: { value: 10, message: "Telefone inválido" },
+            })}
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand ${
+              errors.phone ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {errors.phone && (
+            <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>
+          )}
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block mb-1 text-sm font-varela text-foreground"
-          >
+          <label className="block mb-1 text-sm font-varela text-black flex gap-2">
+            <MailCheckIcon className="text-brand" />
             Email
           </label>
           <input
             type="email"
-            id="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-background"
+            {...register("email", {
+              required: "Email é obrigatório",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Email inválido",
+              },
+            })}
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-brand ${
+              errors.email ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {errors.email && (
+            <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+          )}
         </div>
 
         <div>
-          <label
-            htmlFor="subject"
-            className="block mb-1 text-sm font-varela text-foreground"
-          >
+          <label className="block mb-1 text-sm font-varela text-black flex gap-2">
+            <ListCheckIcon className="text-brand" />
             Assunto
           </label>
           <select
-            id="subject"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-foreground focus:outline-none focus:ring-1 focus:ring-background"
+            {...register("subject", {
+              required: "Selecione um assunto",
+            })}
+            className={`w-full px-3 py-2 border rounded-lg bg-foreground focus:outline-none focus:ring-1 focus:ring-brand ${
+              errors.subject ? "border-red-500" : "border-gray-300"
+            }`}
           >
-            <option value="">Selecione um assunto</option>
-            <option value="planos-de-servico">Planos de serviço</option>
+            <option value="">Solicitar Diagnóstico</option>
+            <option value="planos-de-servico">Dúvida sobre os planos</option>
             <option value="servicos-avulsos">Serviços avulsos</option>
             <option value="suporte-tecnico">Suporte técnico</option>
             <option value="outros">Outros</option>
           </select>
+          {errors.subject && (
+            <p className="text-sm text-red-500 mt-1">
+              {errors.subject.message}
+            </p>
+          )}
         </div>
       </div>
 
-      <div className="mb-4">
-        <label
-          htmlFor="message"
-          className="block mb-1 text-sm font-varela text-foreground"
-        >
+      {/* MENSAGEM */}
+      <div className="mb-6">
+        <label className="block mb-1 text-sm font-varela text-black flex gap-2">
+          <MessageSquareCodeIcon className="text-brand" />
           Mensagem
         </label>
         <textarea
-          id="message"
-          name="message"
           rows={4}
-          value={form.message}
-          onChange={handleChange}
-          required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-1 focus:ring-background"
+          {...register("message", {
+            required: "Mensagem obrigatória",
+            minLength: { value: 10, message: "Mensagem muito curta" },
+          })}
+          className={`w-full px-3 py-2 border rounded-lg resize-none focus:outline-none focus:ring-1 focus:ring-brand ${
+            errors.message ? "border-red-500" : "border-gray-300"
+          }`}
         />
+        {errors.message && (
+          <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
+        )}
       </div>
 
-      <div className="text-right">
-        <Button type="submit" customClass="!bg-brand text-foreground w-full">
-          <span>ENVIAR MENSAGEM</span>
-        </Button>
-      </div>
+      <Button type="submit" customClass="!bg-brand text-foreground w-full">
+        ENVIAR MENSAGEM
+      </Button>
     </form>
   );
 }

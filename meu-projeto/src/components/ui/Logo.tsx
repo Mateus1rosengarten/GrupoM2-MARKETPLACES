@@ -5,19 +5,12 @@ type LogoProps = {
 const Logo: React.FC<LogoProps> = ({ customClass }) => {
   return (
     <a href="#home">
-      <div
-        className={`flex flex-col justify-center items-center ${customClass} `}
-      >
+      <div className={`${customClass}`}>
         <img
           src="/images/logo/logom2.png"
-          alt="Logo icone"
-          className="w-14 h-10 sm:w-20 sm:h-14 md:w-22 md:h-18 lg:w-32 lg:h-24"
+          alt="Logo GrupoM2"
+          className="w-32 h-full sm:w-34 md:w-38 lg:w-40 "
         />
-        {/* <img
-          src="/images/logo/justtext.png"
-          alt="text-logo"
-          className="w-8 sm:w-10 md:w-12 lg:w-16"
-        ></img> */}
       </div>
     </a>
   );

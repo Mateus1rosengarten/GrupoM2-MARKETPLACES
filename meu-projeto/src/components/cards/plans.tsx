@@ -1,4 +1,4 @@
-import { CheckCircle, XCircle, Info } from "lucide-react";
+import { CheckCircle, Info } from "lucide-react";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../ui/Button";
@@ -10,7 +10,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
   oldPrice,
   newPrice,
   featuresIncluded,
-  featuresNotIncluded,
+  handleOnClick,
 }) => {
   const [tooltipIndex, setTooltipIndex] = useState<number | null>(null);
 
@@ -20,9 +20,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className={`group mx-auto h-full w-full max-w-sm transform cursor-pointer rounded-2xl border bg-foreground p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:max-w-[240px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md`}
+      className="group mx-auto h-full w-full max-w-sm transform cursor-pointer rounded-2xl border bg-foreground p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[500px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md"
     >
-      <h3 className="mb-2 text-center font-varela text-xl font-bold text-brand sm:text-2xl">
+      <h3 className="mb-2 text-center font-varela text-2xl font-bold text-brand">
         {title}
       </h3>
 
@@ -39,7 +39,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
         <span className="text-md font-varela font-extrabold transition-colors duration-default group-hover:text-brand sm:text-xl">
           R$
         </span>
-        <span className="font-varela text-5xl font-extrabold text-gray-800 transition-colors duration-default group-hover:text-brand lg:text-6xl">
+        <span className="font-varela text-5xl font-extrabold text-brand sm:text-gray-800 transition-colors duration-default group-hover:text-brand lg:text-6xl">
           {`${newPrice}`}
         </span>
         <span className="font-varela text-muted-light">/mês</span>
@@ -83,27 +83,26 @@ const PlanCard: React.FC<PlanCardProps> = ({
             </p>
           </li>
         ))}
-
-        {featuresNotIncluded?.map((feature) => (
-          <li
-            key={feature}
-            className="flex items-start gap-2 text-muted-light line-through"
-          >
-            <XCircle className="mt-1 h-4 w-4 flex-shrink-0 text-muted-light" />
-            <span className="text-sm">{feature}</span>
-          </li>
-        ))}
       </ul>
 
-      <Button customClass="!w-full hover:scale-zoom">
-        <span>FECHE UM ORCAMENTO</span>
+      <Button
+        onClick={handleOnClick}
+        customClass="!w-full hover:scale-zoom mx-auto"
+      >
+        <span className="mx-auto text-center">
+          SOLICITE DIAGNÓSTICO INICIAL
+        </span>
       </Button>
 
-      <ul className="mt-4 space-y-1 p-2 font-inter text-xs text-muted-light">
-        <li>*Contrato mínimo de 8 meses</li>
+      <ul className="mt-4 space-y-4 p-2 font-inter text-xs text-muted-light">
         <li>
-          *Fale conosco para incluir algum serviço extra e personalizar seu
-          plano
+          *Nossos planos são modelos flexíveis e podem ser personalizados após
+          um diagnóstico gratuito, conforme as necessidades reais do seu
+          negócio.
+        </li>
+        <li>
+          *Você pode encerrar o contrato a qualquer momento, sem aplicação de
+          taxa rescisória.
         </li>
       </ul>
     </motion.div>
