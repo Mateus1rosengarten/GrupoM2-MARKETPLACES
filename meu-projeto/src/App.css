@@ -32,7 +32,8 @@
 /* ContactForm Background */
 
 .bg-gradient-texture {
-  background-image: linear-gradient(125deg, #ffaa00 0%, #000000 80%),
+  background-image:
+    linear-gradient(125deg, #ffaa00 0%, #000000 80%),
     url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   background-repeat: repeat;
   background-blend-mode: overlay;
@@ -48,4 +49,39 @@
 }
 .embla__slide {
   flex: 0 0 auto;
+}
+
+.hero-highlight {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  position: relative;
+  z-index: 1;
+  width: 80%;
+}
+
+.hero-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #90d5ff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 8px;
+  z-index: -1;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-borderMove {
+  background-size: 200% 200%;
+  animation: borderMove 6s linear infinite;
 }

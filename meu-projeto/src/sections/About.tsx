@@ -1,63 +1,58 @@
 import { motion } from "framer-motion";
+import { marketplaces } from "../data/data";
+import ImagePartners from "../components/ui/AboutSection/ImagePartners";
 
-const About: React.FC = () => {
+export default function AboutHero() {
   return (
-    <section
-      id="sobre"
-      className="relative z-10 flex flex-col w-full px-6 py-8 bg-background sm:gap-10 sm:px-10 sm:py-20 md:px-12 xl:px-12 2xl:px-28"
-    >
-      <h2 className="text-foreground text-center sm:text-left text-3xl sm:text-6xl font-varela font-bold">
-        SOBRE O GRUPO M2
-      </h2>
-
-      <div className="flex flex-col gap-y-24 lg:flex-row">
+    <section className="p-8 sm:p-0 relative w-full bg-background text-foreground overflow-hidden">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div
-          className="flex flex-col w-full space-y-4 sm:space-y-8 lg:w-1/2"
-          initial={{ opacity: 0, x: -50 }}
+          className="w-full flex flex-col lg:w-1/2 space-y-6 sm:space-y-8"
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="text-justify font-inter text-foreground sm:text-xl xl:text-2xl leading-relaxed 2xl:leading-loose">
-            <span className="block mt-4 2xl:mt-0">
-              O Grupo M2 nasceu da necessidade de enxergar e operar os
-              marketplaces de forma completa e estratégica. Estar presente nas
-              plataformas não é suficiente quando não há uma gestão capaz de
-              transformar operações em crescimento real e consistente. Da mesma
-              forma, resultados sem gestão não se sustentam.
-            </span>
-            <span className="block">
-              Foi a partir dessa visão que o Grupo M2 surgiu,da união de duas
-              frentes que funcionam em perfeita harmonia:
-              <span className="font-bold text-white">
-                Vendas em escala e gestão estratégica do capital
-              </span>
-              , conectando estratégia, e performance para construir operações
-              sustentáveis dentro dos marketplaces.
-            </span>
+          <h1 className="text-4xl font-varela lg:text-6xl font-bold order-1 sm:order-none ">
+            Escalamos vendas com estratégia e
+            <span className="text-brand"> performance</span>
+          </h1>
+
+          <p className="font-inter text-lg text-gray-300 leading-relaxed order-2 sm:order-none">
+            O Grupo M2 nasceu da necessidade de transformar presença em
+            resultado. Não basta estar nos marketplaces, é preciso estratégia,
+            gestão e performance para construir crescimento real e sustentável.
+          </p>
+          <ImagePartners className="sm:hidden order-3" />
+
+          <div className="flex gap-4 order-5 sm:order-none">
+            <button className="font-inter bg-brand sm:bg-background sm:bg-none sm:hover:bg-brand transition px-6 py-3 rounded-full font-medium">
+              Fale Conosco
+            </button>
+
+            <button className="border font-inter border-brand/80 hover:border-primary hover:text-primary transition px-6 py-3 rounded-full font-medium">
+              Conhecer Serviços
+            </button>
+          </div>
+
+          <div className="flex flex-wrap justify-center pt-2 items-center gap-x-14 gap-y-8 sm:gap-8 order-4 sm:order-none">
+            {marketplaces.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-center py-3 w-20 border border-brand/80 rounded-xl bg-foreground/90 cursor-pointer hover:bg-foreground/20 transition-all duration-300"
+              >
+                <img
+                  src={item.src}
+                  alt={item.name}
+                  className="h-8 md:h-10 w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
         </motion.div>
 
-        <motion.div
-          className="w-full lg:w-1/2 flex justify-center lg:justify-end"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative w-full xl:w-1/2 flex justify-center">
-            <div className="absolute bottom-0 right-0 w-[85%] lg:w-[75%] h-[78%] bg-foreground rounded-l-2xl"></div>
-
-            <img
-              src="/images/sectionsImages/partners.png"
-              alt="Equipe Grupo M2"
-              className="relative z-10 w-full max-w-[600px] h-auto object-contain"
-            />
-          </div>
-        </motion.div>
+        <ImagePartners className="hidden sm:block" />
       </div>
     </section>
   );
-};
-
-export default About;
+}

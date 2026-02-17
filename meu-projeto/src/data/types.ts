@@ -17,6 +17,18 @@ export type PlanCardData = {
   handleOnClick: () => void;
 };
 
+export type ContactFormHeaderProps = {
+  className?: string;
+};
+
+export type FormValues = {
+  name: string;
+  phone: string;
+  email: string;
+  company: string;
+  message: string;
+};
+
 // COMPONENTS PROPS
 export interface SidebarProps {
   isOpen: boolean;
@@ -25,6 +37,7 @@ export interface SidebarProps {
 
 export interface ButtonProps {
   children: ReactNode;
+  variant?: "primary" | "outline";
   type?: "button" | "submit" | "reset";
   customClass?: string;
   onClick?: () => void;

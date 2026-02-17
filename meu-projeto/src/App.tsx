@@ -8,7 +8,6 @@ import About from "./sections/About";
 import Plans from "./sections/Plans";
 
 import Contact from "./sections/Contact";
-import Companys from "./sections/Companys";
 
 function App() {
   return (

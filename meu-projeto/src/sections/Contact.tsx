@@ -1,38 +1,67 @@
-import { faqs } from "../data/data";
-import FaqItem from "../components/ui/FaqItem";
-import ContactForm from "../components/ui/ContactForm";
 import { motion } from "framer-motion";
 
-const Contact: React.FC = () => {
+import { Contact, Phone, Mail, MessageCircle } from "lucide-react";
+import { FloatingBadge } from "../components/ui/FloatingBadge";
+import ContactItem from "../components/ui/ContactSection/ContactItem";
+import ContactFormCard from "../components/ui/ContactSection/ContactForm";
+import ContactFormMobile from "../components/ui/ContactSection/ContactFormMobile";
+
+export default function ContactSection() {
   return (
-    <section id="contato">
-      <motion.div
-        className="lg:space-y-18 relative flex flex-col space-y-8 xl:space-y-20 bg-surface p-6 sm:p-12 lg:flex-row lg:space-x-4 xl:justify-between 2xl:px-28 2xl:!pr-28"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="flex flex-col flex-1 space-y-6 sm:space-y-12">
-          <h2 className="text-2xl sm:mx-none whitespace-nowrap font-varela text-foreground sm:text-5xl">
-            DUVIDAS FREQUENTES
+    <section
+      id="contato"
+      className="relative bg-background text-foreground py-24 px-6 lg:px-20 2xl:px-36"
+    >
+      <div className="mx-auto flex flex-col gap-20">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="px-2 md:px-6 lg:px-0"
+        >
+          <FloatingBadge
+            icon={Contact}
+            text="Entre em contato"
+            className="!py-3"
+          />
+
+          <h2 className="mt-14 sm:mt-16 text-3xl md:text-4xl xl:text-5xl font-varela leading-tight">
+            Tem alguma dúvida?
+            <br />
+            Entre em contato!
           </h2>
-          <ul className="grid gap-6 2xl:grid-cols-2">
-            {faqs.map((faq, index) => (
-              <FaqItem
-                key={index}
-                question={faq.question}
-                answer={faq.answer}
-              />
-            ))}
-          </ul>
+
+          <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-10 md:space-y-0">
+            <ContactItem
+              icon={<MessageCircle size={22} />}
+              title="Pronto para ir ao proximo nivel?"
+              description="Vamos conversar sobre o potencial de seu negocio."
+            />
+
+            <ContactItem
+              icon={<Phone size={22} />}
+              title="Marque um diagnostico gratuito!"
+              description="(11) 98850-4105"
+            />
+
+            <ContactItem
+              icon={<Mail size={22} />}
+              title="Como podemos te ajudar?"
+              description="contato@grupom2.com"
+            />
+          </div>
+        </motion.div>
+        <div className="md:px-6 lg:px-0">
+          {/* ===== MOBILE (form com imagem atrás) ===== */}
+          <ContactFormMobile />
+
+          {/* ===== DESKTOP (layout 50/50) ===== */}
+          <div className="hidden lg:block">
+            <ContactFormCard />
+          </div>
         </div>
-        <div className="flex items-center flex-1">
-          <ContactForm />
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
-};
-
-export default Contact;
+}

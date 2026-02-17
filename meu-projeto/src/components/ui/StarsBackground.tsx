@@ -15,11 +15,11 @@ const StarsBackground: React.FC = () => {
         background: { color: { value: "#000000" } },
         fpsLimit: 100,
         particles: {
-          number: { value: 90, density: { enable: true, area: 800 } },
+          number: { value: 80, density: { enable: true, area: 800 } },
           color: { value: "#ffffff" },
           shape: { type: "star" },
           opacity: { value: 0.8 },
-          size: { value: { min: 0.5, max: 1.8 } },
+          size: { value: { min: 0.5, max: 1.3 } },
           move: {
             enable: true,
             speed: 0.3,

@@ -6,7 +6,7 @@ const Plans: React.FC = () => {
   return (
     <section
       id="planos"
-      className="relative flex flex-col justify-evenly space-y-6 bg-surface px-6 py-6 lg:flex-row sm:space-y-0 sm:px-4 sm:py-20 xl:px-8 2xl:px-24"
+      className="relative flex flex-col lg:flex-row justify-evenly space-y-6 sm:space-y-0 px-6 py-6 sm:px-4 sm:py-20 xl:px-8 2xl:px-24 bg-surface"
     >
       {planCards.map((plan, index) => (
         <motion.div

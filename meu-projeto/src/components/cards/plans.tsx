@@ -20,8 +20,19 @@ const PlanCard: React.FC<PlanCardProps> = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="group mx-auto h-full w-full max-w-sm transform cursor-pointer rounded-2xl border bg-foreground p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[500px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md"
+      className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-foreground p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
+        ${title === "M2 TURBO" && "sm:!scale-105 border-2 border-brand shadow-3xl"}`}
     >
+      {title === "M2 TURBO" && (
+        <div className="absolute left-0 top-0 overflow-hidden rounded-tl-2xl">
+          <div className="relative h-24 w-24">
+            <div className="absolute -left-10 top-6 w-40 -rotate-45 bg-brand py-1 text-center text-xs font-bold tracking-wide text-gray-900 shadow-md">
+              RECOMENDADO
+            </div>
+          </div>
+        </div>
+      )}
+
       <h3 className="mb-2 text-center font-varela text-2xl font-bold text-brand">
         {title}
       </h3>

@@ -1,11 +1,15 @@
 import { Variants } from "framer-motion";
-import {
-  FaqItem,
-  FeaturesIncluded,
-  PlanCardData,
-  ServiceCardProps,
-} from "./types";
+import { FeaturesIncluded, PlanCardData, ServiceCardProps } from "./types";
 import { sendWhatsApp } from "../utils/whatsapp";
+
+export const marketplaces = [
+  { name: "Mercado Livre", src: "/images/logos/ml.svg" },
+  { name: "Shopee", src: "/images/logos/shopee.svg" },
+  { name: "Shein", src: "/images/logos/shein.svg" },
+  { name: "Magalu", src: "/images/logos/magalu.svg" },
+  { name: "TikTok Shop", src: "/images/logos/tiktok.svg" },
+  { name: "Amazon", src: "/images/logos/amazon.svg" },
+];
 
 // BUTTONS CONTACT
 export const WHATSAPP_MESSAGES = {
@@ -309,48 +313,3 @@ export const planCardVariants: Variants = {
     },
   },
 };
-
-// FAQ SECTION
-// FAQ SECTION
-export const faqs: FaqItem[] = [
-  {
-    question: "Como funciona o primeiro contato e a contratação?",
-    answer:
-      "O primeiro contato pode ser feito por qualquer canal disponível no site. A partir disso, realizamos um diagnóstico gratuito para entender sua operação e, só então, apresentamos uma proposta personalizada.",
-  },
-  {
-    question: "O que está incluso no diagnóstico gratuito?",
-    answer:
-      "O diagnóstico consiste em uma análise inicial da sua operação, objetivos, desafios e oportunidades nos marketplaces, servindo como base para definir a melhor estratégia e o plano ideal.",
-  },
-  {
-    question: "Os planos M2 são fixos ou personalizados?",
-    answer:
-      "Os planos Essencial, Turbo e Elite são modelos referenciais. Após o diagnóstico, eles são ajustados e personalizados conforme as necessidades reais do seu negócio.",
-  },
-  {
-    question: "Posso contratar apenas alguns serviços específicos?",
-    answer:
-      "Sim. É possível contratar serviços específicos ou complementar um plano existente, desde que façam sentido dentro da estratégia definida para a operação.",
-  },
-  {
-    question: "Vocês atuam apenas na operação ou também na estratégia?",
-    answer:
-      "Atuamos de forma estratégica e operacional, acompanhando indicadores, performance, mercado e tomada de decisão para garantir crescimento sustentável.",
-  },
-  {
-    question: "Como funciona o acompanhamento e o suporte?",
-    answer:
-      "O acompanhamento é contínuo, com suporte dedicado, alinhamentos periódicos e relatórios de desempenho que auxiliam na gestão e nas decisões do negócio.",
-  },
-  {
-    question: "Em quanto tempo posso ver resultados?",
-    answer:
-      "Alguns ajustes geram impactos iniciais em curto prazo, porém resultados consistentes e escaláveis são construídos ao longo do médio e longo prazo.",
-  },
-  {
-    question: "Posso cancelar o serviço quando quiser?",
-    answer:
-      "Sim. O contrato pode ser encerrado a qualquer momento, sem aplicação de taxa rescisória.",
-  },
-];
