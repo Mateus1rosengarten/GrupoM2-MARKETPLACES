@@ -47,7 +47,7 @@ export default function AboutHero() {
             </button>
           </div>
 
-          <div className="flex flex-wrap justify-center pt-2 items-center gap-x-14 gap-y-8 sm:gap-8 order-4 sm:order-none">
+          <div className="flex flex-wrap justify-center pt-2 items-center gap-x-8 gap-y-8 sm:gap-8 order-4 sm:order-none">
             {marketplaces.map((item, index) => (
               <div
                 key={index}
