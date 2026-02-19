@@ -19,9 +19,8 @@ const Hero: React.FC = () => {
           </h1>
 
           <span className="font-inter text-lg text-gray-300 leading-relaxed mb-2">
-            Gestão completa de marketplaces com inteligência financeira unindo
-            operação, controle e tomada de decisão baseado em dados para escalar
-            vendas com{" "}
+            Gestão para marketplaces com inteligência financeira unindo operação
+            e controle para escalar vendas com{" "}
             <span className="font-bold font-varela text-foreground text-xl sm:text-2xl">
               previsibilidade e crescimento sustentável.
             </span>
@@ -45,9 +44,9 @@ const Hero: React.FC = () => {
           <FloatingBadge
             text="Marketplace & Financeiro"
             icon={Blocks}
-            className="absolute bottom-0 left-4 sm:left-5"
+            className="absolute -bottom-1 sm:bottom-0 left-4 sm:left-5"
           />
-          <div className="absolute bottom-0 right-0 w-[85%] lg:w-[75%] h-[80%] sm:h-[100%] bg-foreground rounded-tl-2xl rounded-br-2xl"></div>
+          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[74%] h-[80%] sm:h-[100%] bg-foreground rounded-tl-2xl rounded-br-2xl"></div>
 
           <img
             src="/images/sectionsImages/hero-pic.png"

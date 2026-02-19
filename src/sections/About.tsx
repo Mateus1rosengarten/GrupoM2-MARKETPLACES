@@ -7,7 +7,7 @@ export default function AboutHero() {
   return (
     <section
       id="sobre"
-      className="px-4 py-20  sm:px-8 relative w-full bg-background text-foreground overflow-hidden"
+      className="px-4 py-16 sm:px-8 relative w-full bg-background text-foreground overflow-hidden"
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div
@@ -29,7 +29,7 @@ export default function AboutHero() {
           </p>
           <ImagePartners className="sm:hidden order-3" />
 
-          <div className="flex gap-4 order-5 sm:order-none">
+          <div className="flex flex-col sm:flex-row w-full items-center justify-center sm:justify-start space-y-4 md:space-y-0 gap-4 order-5 sm:order-none">
             <button
               onClick={() =>
                 sendWhatsApp(WHATSAPP_MESSAGES.diagnosticoGratuito)

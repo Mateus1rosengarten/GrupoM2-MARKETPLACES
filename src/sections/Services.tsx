@@ -7,7 +7,7 @@ const Services: React.FC = () => {
     <>
       <section
         id="servicos"
-        className="relative bg-surface items-stretch grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4 sm:gap-x-8 sm:gap-y-12 2xl:gap-y-20 px-2 py-8 sm:py-20 sm:px-16 xl:px-8 2xl:px-22"
+        className="relative bg-surface items-stretch grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4 sm:gap-x-8 sm:gap-y-12 2xl:gap-y-20 px-2 py-20 sm:px-16 xl:px-8 2xl:px-22"
       >
         {serviceCards.map((card, index) => (
           <motion.div

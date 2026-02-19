@@ -35,7 +35,7 @@ export default function ContactSection() {
             Entre em contato!
           </h2>
 
-          <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-16 md:space-y-0">
+          <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-12 md:space-y-0">
             <ContactItem
               icon={<MessageCircle size={22} />}
               title="Pronto para escalar suas vendas?"
