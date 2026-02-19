@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { Contact, Phone, Mail, MessageCircle } from "lucide-react";
 import { FloatingBadge } from "../components/ui/FloatingBadge";
 import ContactItem from "../components/ui/ContactSection/ContactItem";

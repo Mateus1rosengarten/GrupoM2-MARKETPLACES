@@ -4,7 +4,7 @@ import Button from "../components/ui/Button";
 import { sendWhatsApp } from "../utils/whatsapp";
 import { WHATSAPP_MESSAGES } from "../data/data";
 import { FloatingBadge } from "../components/ui/FloatingBadge";
-import { Blocks, Layers, LayoutGrid, TrendingUp } from "lucide-react";
+import { Blocks } from "lucide-react";
 
 const Hero: React.FC = () => {
   return (
