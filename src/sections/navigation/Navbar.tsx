@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden mr-2">
             <button onClick={() => setSidebarOpen(true)}>
               <Menu size={32} className="text-brand" />
             </button>
