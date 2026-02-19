@@ -5,12 +5,20 @@ import { sendWhatsApp } from "../utils/whatsapp";
 import { WHATSAPP_MESSAGES } from "../data/data";
 import { FloatingBadge } from "../components/ui/FloatingBadge";
 import { Blocks } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 const Hero: React.FC = () => {
   return (
     <section id="home" className="flex py-20 sm:py-40 md:px-8 xl:px-32">
-      <div className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10">
-        <div className="flex flex-col gap-8 sm:gap-4 2xl:gap-10 max-w-[92vw] xl:max-w-[50vw]">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10"
+      >
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col gap-8 sm:gap-4 2xl:gap-10 max-w-[92vw] xl:max-w-[50vw]"
+        >
           <h1 className="text-foreground sm:mb-4 text-4xl sm:text-6xl font-varela font-bold ">
             Gestão Estratégica de Marketplaces com foco
             <br />
@@ -39,8 +47,11 @@ const Hero: React.FC = () => {
               </Button>
             </a>
           </div>
-        </div>
-        <div className="relative w-full xl:w-1/2 flex flex-col justify-center">
+        </motion.div>
+        <motion.div
+          variants={fadeRight}
+          className="relative w-full xl:w-1/2 flex flex-col justify-center"
+        >
           <FloatingBadge
             text="Marketplace & Financeiro"
             icon={Blocks}
@@ -53,11 +64,29 @@ const Hero: React.FC = () => {
             alt="Gestão de vendas"
             className="relative z-10 w-full max-w-[600px] h-auto object-contain"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <StarsBackground />
     </section>
   );
 };
 
 export default Hero;
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8 },
+  },
+};
+
+const fadeRight: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1 },
+  },
+};
