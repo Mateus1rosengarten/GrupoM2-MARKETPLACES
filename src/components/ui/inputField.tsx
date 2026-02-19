@@ -9,7 +9,7 @@ type InputFieldProps = {
 
 function InputField({ icon, placeholder, register, dark }: InputFieldProps) {
   return (
-    <div className="relative mt-5 sm:mt-0">
+    <div className="relative mt-5">
       <div
         className={`absolute left-4 top-1/2 -translate-y-1/2  ${
           dark ? "text-white/60" : "text-gray-400"

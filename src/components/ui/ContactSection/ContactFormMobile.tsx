@@ -3,11 +3,17 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ContactFormHeader from "./ContactFormHeader";
 import InputFieldForm from "./InputFieldForm";
-import { ContactFormData, contactSchema } from "../../../utils/zodSchema";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleContactSubmit } from "../../../utils/handleContactSubmit";
+import { ContactFormData, contactSchema } from "../../../utils/zodSchema";
 
-export default function ContactFormMobile() {
+type ContactFormMobileProps = {
+  onSucess: () => void;
+};
+export default function ContactFormMobile({
+  onSucess,
+}: ContactFormMobileProps) {
   const {
     register,
     handleSubmit,
@@ -18,8 +24,11 @@ export default function ContactFormMobile() {
   });
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data: ContactFormData) => {
-    handleContactSubmit(data, setLoading, reset);
+  const onSubmit = async (data: ContactFormData) => {
+    const result = await handleContactSubmit(data, setLoading, reset);
+    if (result?.success) {
+      onSucess();
+    }
   };
 
   return (

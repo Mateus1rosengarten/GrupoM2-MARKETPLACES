@@ -31,7 +31,14 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="hidden md:block ml-auto">
-            <Button customClass="!pl-2 !pr-6 py-2">
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              customClass="!pl-2 !pr-6 py-2"
+            >
               <div className="flex items-center gap-2">
                 <ChevronLeft />
                 <span>CONTATE NOS</span>

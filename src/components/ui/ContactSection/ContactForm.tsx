@@ -7,7 +7,11 @@ import { ContactFormData, contactSchema } from "../../../utils/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleContactSubmit } from "../../../utils/handleContactSubmit";
 
-export default function ContactFormCard() {
+type ContactFormProps = {
+  onSucess: () => void;
+};
+
+export default function ContactFormCard({ onSucess }: ContactFormProps) {
   const {
     register,
     handleSubmit,
@@ -19,8 +23,12 @@ export default function ContactFormCard() {
 
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data: ContactFormData) =>
-    handleContactSubmit(data, setLoading, reset);
+  const onSubmit = async (data: ContactFormData) => {
+    const result = await handleContactSubmit(data, setLoading, reset);
+    if (result.success) {
+      onSucess();
+    }
+  };
 
   return (
     <motion.div

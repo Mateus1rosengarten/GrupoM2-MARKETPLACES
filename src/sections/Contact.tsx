@@ -5,8 +5,12 @@ import { FloatingBadge } from "../components/ui/FloatingBadge";
 import ContactItem from "../components/ui/ContactSection/ContactItem";
 import ContactFormCard from "../components/ui/ContactSection/ContactForm";
 import ContactFormMobile from "../components/ui/ContactSection/ContactFormMobile";
+import { useState } from "react";
+import SuccessModal from "../components/ui/ContactSection/SucessModal";
 
 export default function ContactSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="contato"
@@ -48,14 +52,20 @@ export default function ContactSection() {
             />
           </div>
         </motion.div>
-        <div className="md:px-6 lg:px-0">
-          <ContactFormMobile />
+        <div id="form">
+          <div className="md:px-6 lg:px-0">
+            <ContactFormMobile onSucess={() => setIsModalOpen(true)} />
 
-          <div className="hidden lg:block">
-            <ContactFormCard />
+            <div className="hidden lg:block">
+              <ContactFormCard onSucess={() => setIsModalOpen(true)} />
+            </div>
           </div>
         </div>
       </div>
+      <SuccessModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }

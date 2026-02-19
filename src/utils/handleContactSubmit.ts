@@ -9,11 +9,11 @@ export const handleContactSubmit = async (
   try {
     setLoading(true);
     await sendContactEmail(data);
-    alert("Mensagem enviada com sucesso!");
     reset();
+    return { success: true };
   } catch (error) {
     console.error(error);
-    alert("Erro ao enviar mensagem.");
+    return { success: false };
   } finally {
     setLoading(false);
   }
