@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
             icon={Blocks}
             className="absolute -bottom-1 sm:bottom-0 left-4 sm:left-5"
           />
-          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[74%] h-[80%] sm:h-[100%] bg-foreground rounded-tl-2xl rounded-br-2xl"></div>
+          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[85%] h-[80%] sm:h-[100%] bg-foreground rounded-tl-2xl rounded-br-2xl"></div>
 
           <img
             src="/images/sectionsImages/hero-pic.png"
