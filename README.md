@@ -1,4 +1,4 @@
-# RosenTech Digital - Landing Page
+GRUPO M2
 
 A modern and responsive landing page for a digital agency, built with **React**, **TypeScript**, and **Tailwind CSS**.  
 The project showcases services, portfolio, and contact sections, with smooth navigation and a clean, conversion-focused design.
