@@ -20,11 +20,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="px-2 md:px-6 lg:px-0"
         >
-          <FloatingBadge
-            icon={Contact}
-            text="Entre em contato"
-            className="!py-3"
-          />
+          <FloatingBadge icon={Contact} text="Fale Conosco" className="!py-3" />
 
           <h2 className="mt-14 sm:mt-16 text-3xl md:text-4xl xl:text-5xl font-varela leading-tight">
             Tem alguma dúvida?
@@ -35,13 +31,13 @@ export default function ContactSection() {
           <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-10 md:space-y-0">
             <ContactItem
               icon={<MessageCircle size={22} />}
-              title="Pronto para ir ao proximo nivel?"
+              title="Pronto para escalar suas vendas?"
               description="Vamos conversar sobre o potencial de seu negocio."
             />
 
             <ContactItem
               icon={<Phone size={22} />}
-              title="Marque um diagnostico gratuito!"
+              title="Agende um diagnostico gratuito!"
               description="(11) 98850-4105"
             />
 
@@ -53,10 +49,8 @@ export default function ContactSection() {
           </div>
         </motion.div>
         <div className="md:px-6 lg:px-0">
-          {/* ===== MOBILE (form com imagem atrás) ===== */}
           <ContactFormMobile />
 
-          {/* ===== DESKTOP (layout 50/50) ===== */}
           <div className="hidden lg:block">
             <ContactFormCard />
           </div>

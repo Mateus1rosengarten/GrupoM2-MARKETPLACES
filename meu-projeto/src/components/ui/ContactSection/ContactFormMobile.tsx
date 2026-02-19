@@ -1,14 +1,25 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import ContactFormHeader from "./ContactFormHeader";
 import InputFieldForm from "./InputFieldForm";
-import { FormValues } from "../../../data/types";
+import { ContactFormData, contactSchema } from "../../../utils/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { handleContactSubmit } from "../../../utils/handleContactSubmit";
 
 export default function ContactFormMobile() {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
+  const onSubmit = (data: ContactFormData) => {
+    handleContactSubmit(data, setLoading, reset);
   };
 
   return (
@@ -27,13 +38,19 @@ export default function ContactFormMobile() {
       />
 
       <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
+
       <div className="relative z-10 p-6 text-white font-inter">
         <ContactFormHeader />
 
-        <div className="w-12 bg-brand my-4" />
+        <div className="w-12 h-[2px] bg-brand my-4" />
 
         <div className="grid grid-cols-1 gap-4 mt-6">
-          <InputFieldForm register={register} className="text-foreground" />
+          <InputFieldForm
+            register={register}
+            errors={errors}
+            loading={loading}
+            className="text-foreground"
+          />
         </div>
       </div>
     </motion.form>

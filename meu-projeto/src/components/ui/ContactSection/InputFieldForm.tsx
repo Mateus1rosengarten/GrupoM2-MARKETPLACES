@@ -1,33 +1,49 @@
 import { Building2, Mail, Phone, User } from "lucide-react";
 import InputField from "../inputField";
-import { UseFormRegister } from "react-hook-form";
-import { FormValues } from "../../../data/types";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 import Button from "../Button";
+import { ContactFormData } from "../../../utils/zod";
 
 type InputFieldFormProps = {
-  register: UseFormRegister<FormValues>;
+  register: UseFormRegister<ContactFormData>;
+  errors: FieldErrors<ContactFormData>;
   className?: string;
+  loading?: boolean;
 };
 
-const InputFieldForm = ({ register, className }: InputFieldFormProps) => {
+const InputFieldForm = ({
+  register,
+  errors,
+  className,
+  loading,
+}: InputFieldFormProps) => {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-background font-inter">
         <InputField
           icon={<User size={18} />}
           placeholder="Seu nome"
-          register={register("name", { required: true })}
+          register={register("name")}
         />
+        {errors.name && (
+          <p className="text-red-500 text-xs mt-0">{errors.name.message}</p>
+        )}
         <InputField
           icon={<Phone size={18} />}
           placeholder="Telefone"
-          register={register("phone", { required: true })}
+          register={register("phone")}
         />
+        {errors.phone && (
+          <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
+        )}
         <InputField
           icon={<Mail size={18} />}
           placeholder="Email"
-          register={register("email", { required: true })}
+          register={register("email")}
         />
+        {errors.email && (
+          <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+        )}
         <InputField
           icon={<Building2 size={18} />}
           placeholder="Empresa"
@@ -41,6 +57,9 @@ const InputFieldForm = ({ register, className }: InputFieldFormProps) => {
           {...register("message", { required: true })}
           className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition resize-none text-background font-inter"
         />
+        {errors.message && (
+          <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
+        )}
       </div>
       <p className={`sm:mt-4 sm:mb-6 text-xs font-inter ${className}`}>
         *Seus dados estão protegidos conforme a{" "}
@@ -55,7 +74,11 @@ const InputFieldForm = ({ register, className }: InputFieldFormProps) => {
         .
       </p>
 
-      <Button children={"FALAR COM A GENTE"} customClass="w-full" />
+      <Button
+        type="submit"
+        children={!loading ? "FALAR COM A GENTE" : "ENVIANDO..."}
+        customClass="w-full"
+      />
     </>
   );
 };

@@ -16,24 +16,24 @@ const ImagePartners = ({ className }: ImagePartnersProps) => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="absolute bottom-1 sm:bottom-60 right-0 w-[80%] lg:w-[75%] h-full sm:h-[50%] bg-foreground rounded-r-2xl order-2"></div>
+        <div className="absolute bottom-1 right-0 w-[80%] lg:w-[75%] h-full bg-foreground rounded-r-2xl order-2"></div>
+
+        <FloatingBadge
+          icon={TrendingUp}
+          text="Crescimento Sustentável "
+          className="-top-2 -left-2 sm:left-4"
+        />
 
         <FloatingBadge
           icon={Target}
           text="Performance & Dados"
-          className="-top-2 -left-2 sm:top-36 sm:left-0"
-        />
-
-        <FloatingBadge
-          icon={TrendingUp}
-          text="Crescimento Sustentável"
-          className="-bottom-2 sm:bottom-52 -right-2 sm:-right-6"
+          className="-bottom-2  -right-2 sm:-right-4"
         />
 
         <img
           src="/images/sectionsImages/partners.png"
           alt="Equipe Grupo M2"
-          className="relative max-w-[600px] w-full z-1 block h-auto"
+          className="relative max-w-[500px] w-full z-1 block h-auto"
         />
       </motion.div>
     </>

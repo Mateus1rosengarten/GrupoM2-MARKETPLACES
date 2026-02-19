@@ -2,14 +2,26 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import ContactFormHeader from "./ContactFormHeader";
 import InputFieldForm from "./InputFieldForm";
-import { FormValues } from "../../../data/types";
+import { useState } from "react";
+import { sendContactEmail } from "../../../utils/emailjs";
+import { ContactFormData, contactSchema } from "../../../utils/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { handleContactSubmit } from "../../../utils/handleContactSubmit";
 
 export default function ContactFormCard() {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
 
-  const onSubmit = (data: FormValues) => {
-    console.log(data);
-  };
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = (data: ContactFormData) =>
+    handleContactSubmit(data, setLoading, reset);
 
   return (
     <motion.div
@@ -26,11 +38,15 @@ export default function ContactFormCard() {
         <ContactFormHeader className="text-background" />
 
         <p className="text-sm font-inter mb-8 text-muted-light">
-          Nossa equipe analisará seu cenário e retornará com um diagnóstico
-          estratégico.
+          Iremos analisar suas duvidas e retornararemos o mais breve possivel.
         </p>
 
-        <InputFieldForm register={register} className="text-background" />
+        <InputFieldForm
+          register={register}
+          errors={errors}
+          loading={loading}
+          className="text-background"
+        />
       </motion.form>
 
       <div className="relative h-72 lg:h-auto">

@@ -39,6 +39,8 @@ export const WHATSAPP_MESSAGES = {
 
   orcamentoElite:
     "Olá! Tenho interesse no Plano Elite e gostaria de conhecer todos os diferenciais e benefícios inclusos.",
+
+  servicos: "Olá! Gostaria de entender mais sobre os serviços prestados",
 };
 
 // SERVICE SECTION
@@ -57,7 +59,7 @@ export const serviceCards: ServiceCardProps[] = [
     image: "/images/serviceCard/marketplace.png",
     title: "Gestão Estratégica de Marketplaces",
     description:
-      "Administração completa e orientada por dados das operações dos maiores Marketplaces com foco em performance, escala e sustentabilidade financeira do negócio.",
+      "Estruturação da presença nos principais marketplaces, definição de estratégia comercial, análise de indicadores e relatórios gerenciais para direcionar crescimento.",
     features: [
       "Design responsivo e moderno",
       "Uso das mais avançadas tecnologias",
@@ -70,7 +72,7 @@ export const serviceCards: ServiceCardProps[] = [
     image: "/images/serviceCard/financeiro.png",
     title: "Controladoria Financeira Empresarial",
     description:
-      "Gestão financeira constante e estratégica que mapeie o fluxo de caixa, orienta decisões com dados gerenciais, aumentando o lucro e reduzindo custos desnecessários.",
+      "Planejamento financeiro, fluxo de caixa estruturado e análise de dados financeiros e gerenciais para aumentar rentabilidade e sustentar o crescimento em marketplaces.",
     features: [
       "Design responsivo e moderno",
       "Uso das mais avançadas tecnologias",
@@ -98,7 +100,7 @@ export const serviceCards: ServiceCardProps[] = [
     image: "/images/serviceCard/meta.jpeg",
     title: "Gestão de Tráfego Pago em Marketplaces",
     description:
-      "Planejamento, execução e escala de campanhas em Mercado Ads, Shopee Ads e Shein Ads com foco em ROAS, lucro incremental e crescimento previsível.",
+      "Planejamento, execução e escala de campanhas em Mercado Livre Ads, Shopee Ads , Shein Ads, Amazon Ads com foco em ROAS, lucro incremental e crescimento previsível.",
     features: [
       "Gestão e Monitoramento de Redes Sociais",
       "Planejamento Estratégico de Conteúdo",
@@ -124,7 +126,7 @@ export const serviceCards: ServiceCardProps[] = [
     image: "/images/serviceCard/consultoria.jpeg",
     title: "Soluções Digitais Personalizadas",
     description:
-      "Desenvolvimento de soluções sob medida para demandas fora do marketplace, incluindo websites, branding, redes sociais, automações, integrações e projetos estratégicos.",
+      "Desenvolvimento de soluções sob medida para fortalecer a operação em marketplaces, incluindo websites, branding, redes sociais, automações, integrações e projetos estratégicos.",
     features: [
       "Diagnóstico completo de sistemas digitais",
       "Redução de custos operacionais",

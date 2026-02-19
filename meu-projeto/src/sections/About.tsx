@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
-import { marketplaces } from "../data/data";
+import { marketplaces, WHATSAPP_MESSAGES } from "../data/data";
 import ImagePartners from "../components/ui/AboutSection/ImagePartners";
+import { sendWhatsApp } from "../utils/whatsapp";
 
 export default function AboutHero() {
   return (
-    <section className="p-8 sm:p-0 relative w-full bg-background text-foreground overflow-hidden">
+    <section
+      id="sobre"
+      className="p-8 sm:py-20 relative w-full bg-background text-foreground overflow-hidden"
+    >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div
           className="w-full flex flex-col lg:w-1/2 space-y-6 sm:space-y-8"
@@ -26,11 +30,19 @@ export default function AboutHero() {
           <ImagePartners className="sm:hidden order-3" />
 
           <div className="flex gap-4 order-5 sm:order-none">
-            <button className="font-inter bg-brand sm:bg-background sm:bg-none sm:hover:bg-brand transition px-6 py-3 rounded-full font-medium">
+            <button
+              onClick={() =>
+                sendWhatsApp(WHATSAPP_MESSAGES.diagnosticoGratuito)
+              }
+              className="font-inter bg-brand sm:bg-background sm:bg-none sm:hover:bg-brand transition px-6 py-3 rounded-full font-medium"
+            >
               Fale Conosco
             </button>
 
-            <button className="border font-inter border-brand/80 hover:border-primary hover:text-primary transition px-6 py-3 rounded-full font-medium">
+            <button
+              onClick={() => sendWhatsApp(WHATSAPP_MESSAGES.servicos)}
+              className="border font-inter border-brand/80 hover:border-primary hover:text-primary transition px-6 py-3 rounded-full font-medium"
+            >
               Conhecer Serviços
             </button>
           </div>
