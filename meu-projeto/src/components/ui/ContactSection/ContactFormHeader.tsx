@@ -7,7 +7,7 @@ const ContactFormHeader = ({
   return (
     <>
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-brand/5 rounded-full blur-3xl" />
-      <div className="relative mb-6 flex items-center gap-3">
+      <div className="relative mb-6 ml-1 flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
           <Mail size={18} />
         </div>
@@ -17,11 +17,11 @@ const ContactFormHeader = ({
       </div>
 
       <h3
-        className={`relative text-xl sm:text-2xl font-varela font-semibold ${className}`}
+        className={`relative text-xl sm:text-2xl font-varela font-semibold ml-1 sm:ml-0 ${className}`}
       >
         FALE COM NOSSA <span className="text-brand">EQUIPE</span>
       </h3>
-      <div className="w-20 h-px bg-brand my-4" />
+      <div className="w-20 h-px bg-brand my-4 ml-1 sm:ml-0" />
     </>
   );
 };

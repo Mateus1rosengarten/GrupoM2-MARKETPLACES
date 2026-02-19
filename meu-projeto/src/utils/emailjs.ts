@@ -1,10 +1,10 @@
 import emailjs from "@emailjs/browser";
-import { ContactFormData } from "./zod";
+import { ContactFormData } from "./zodSchema";
 
 export const sendContactEmail = async (data: ContactFormData) => {
   return emailjs.send(
-    "service_a9kxnsb",
-    "template_vb29vuj",
+    process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
+    process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
     {
       name: data.name,
       phone: data.phone,
@@ -12,6 +12,6 @@ export const sendContactEmail = async (data: ContactFormData) => {
       company: data.company,
       message: data.message,
     },
-    "k0moFnA6DqxH_s4ML"
+    process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
   );
 };

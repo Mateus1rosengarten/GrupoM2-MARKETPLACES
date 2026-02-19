@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const contactSchema = z.object({
-  name: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
+  name: z.string().min(3, "Insira um nome válido"),
 
   phone: z.string().min(8, "Telefone inválido"),
 
@@ -9,7 +9,7 @@ export const contactSchema = z.object({
 
   company: z.string().optional(),
 
-  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 3 caracteres"),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;

@@ -1,4 +1,4 @@
-import { ContactFormData } from "./zod";
+import { ContactFormData } from "./zodSchema";
 import { sendContactEmail } from "./emailjs";
 
 export const handleContactSubmit = async (

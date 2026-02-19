@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import ContactFormHeader from "./ContactFormHeader";
 import InputFieldForm from "./InputFieldForm";
 import { useState } from "react";
-import { sendContactEmail } from "../../../utils/emailjs";
-import { ContactFormData, contactSchema } from "../../../utils/zod";
+import { ContactFormData, contactSchema } from "../../../utils/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleContactSubmit } from "../../../utils/handleContactSubmit";
 

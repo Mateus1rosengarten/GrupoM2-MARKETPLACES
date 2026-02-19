@@ -2,7 +2,8 @@ import { Building2, Mail, Phone, User } from "lucide-react";
 import InputField from "../inputField";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import Button from "../Button";
-import { ContactFormData } from "../../../utils/zod";
+import { ContactFormData } from "../../../utils/zodSchema";
+import ErrorText from "./ErrorText";
 
 type InputFieldFormProps = {
   register: UseFormRegister<ContactFormData>;
@@ -19,49 +20,45 @@ const InputFieldForm = ({
 }: InputFieldFormProps) => {
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-background font-inter">
+      <div className="grid grid-cols-1 sm:grid-cols-2 text-background font-inter">
         <InputField
           icon={<User size={18} />}
           placeholder="Seu nome"
           register={register("name")}
         />
-        {errors.name && (
-          <p className="text-red-500 text-xs mt-0">{errors.name.message}</p>
-        )}
+        {errors.name && <ErrorText text={errors.name.message} />}
         <InputField
           icon={<Phone size={18} />}
           placeholder="Telefone"
           register={register("phone")}
         />
-        {errors.phone && (
-          <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
-        )}
+        {errors.phone && <ErrorText text={errors.phone.message} />}
+
         <InputField
           icon={<Mail size={18} />}
           placeholder="Email"
           register={register("email")}
         />
-        {errors.email && (
-          <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
-        )}
+        {errors.email && <ErrorText text={errors.email.message} />}
+
         <InputField
           icon={<Building2 size={18} />}
           placeholder="Empresa"
           register={register("company")}
         />
       </div>
-      <div className="sm:mt-5">
+      <div className="mt-3 sm:mt-5">
         <textarea
           rows={4}
           placeholder="Como podemos ajudar?"
-          {...register("message", { required: true })}
+          {...register("message")}
           className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-brand transition resize-none text-background font-inter"
         />
-        {errors.message && (
-          <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
-        )}
+        {errors.message && <ErrorText text={errors.message.message} />}
       </div>
-      <p className={`sm:mt-4 sm:mb-6 text-xs font-inter ${className}`}>
+      <p
+        className={`sm:mt-4 sm:mb-6 text-xs font-inter ml-2 sm:ml-0 ${className}`}
+      >
         *Seus dados estão protegidos conforme a{" "}
         <a
           href="https://abrasel.com.br/noticias/noticias/o-que-e-a-lgpd-e-como-ela-impacta-brasileiros-e-empresas/"

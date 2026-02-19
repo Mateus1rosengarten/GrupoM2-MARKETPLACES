@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ContactFormHeader from "./ContactFormHeader";
 import InputFieldForm from "./InputFieldForm";
-import { ContactFormData, contactSchema } from "../../../utils/zod";
+import { ContactFormData, contactSchema } from "../../../utils/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { handleContactSubmit } from "../../../utils/handleContactSubmit";
 
@@ -33,17 +33,12 @@ export default function ContactFormMobile() {
     >
       <img
         src="/images/sectionsImages/escritorio.png"
-        alt="Ambiente de trabalho"
+        alt="Escritório Grupo M2"
         className="absolute inset-0 w-full h-full object-cover object-[80%_center] brightness-90"
       />
-
       <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" />
-
       <div className="relative z-10 p-6 text-white font-inter">
         <ContactFormHeader />
-
-        <div className="w-12 h-[2px] bg-brand my-4" />
-
         <div className="grid grid-cols-1 gap-4 mt-6">
           <InputFieldForm
             register={register}
