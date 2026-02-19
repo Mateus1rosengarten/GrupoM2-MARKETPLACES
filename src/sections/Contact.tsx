@@ -13,7 +13,7 @@ export default function ContactSection() {
   return (
     <section
       id="contato"
-      className="relative bg-background text-foreground py-24 px-6 lg:px-20 2xl:px-36"
+      className="relative bg-background text-foreground py-24 px-2 md:px-6 lg:px-20 2xl:px-36"
     >
       <div className="mx-auto flex flex-col gap-20">
         <motion.div
@@ -23,15 +23,19 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="px-2 md:px-6 lg:px-0"
         >
-          <FloatingBadge icon={Contact} text="Fale Conosco" className="!py-3" />
+          <FloatingBadge
+            icon={Contact}
+            text="Fale Conosco"
+            className="sm:!py-3"
+          />
 
-          <h2 className="mt-14 sm:mt-16 text-3xl md:text-4xl xl:text-5xl font-varela leading-tight">
+          <h2 className="mt-16 sm:mt-14 sm:mt-16 text-3xl md:text-4xl xl:text-5xl font-varela leading-tight">
             Tem alguma dúvida?
             <br />
             Entre em contato!
           </h2>
 
-          <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-10 md:space-y-0">
+          <div className="flex flex-col w-full justify-between 2xl:justify-evenly md:flex-row mt-12 lg:mt-20 xl:mt-10 space-y-16 md:space-y-0">
             <ContactItem
               icon={<MessageCircle size={22} />}
               title="Pronto para escalar suas vendas?"

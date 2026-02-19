@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="flex py-20 sm:py-40 md:px-8 xl:px-32">
       <div className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10">
-        <div className="flex flex-col gap-4 2xl:gap-10 max-w-[85vw] xl:max-w-[50vw]">
+        <div className="flex flex-col gap-8 sm:gap-4 2xl:gap-10 max-w-[92vw] xl:max-w-[50vw]">
           <h1 className="text-foreground sm:mb-4 text-4xl sm:text-6xl font-varela font-bold ">
             Gestão Estratégica de Marketplaces com foco
             <br />
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
               previsibilidade e crescimento sustentável.
             </span>
           </span>
-          <div className="flex gap-2 sm:gap-6 sm:mt-4">
+          <div className="flex gap-5 sm:gap-6 sm:mt-4 mx-auto sm:mx-0">
             <Button
               onClick={() =>
                 sendWhatsApp(WHATSAPP_MESSAGES.diagnosticoGratuito)

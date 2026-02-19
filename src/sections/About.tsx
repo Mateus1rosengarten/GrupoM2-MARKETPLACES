@@ -7,11 +7,11 @@ export default function AboutHero() {
   return (
     <section
       id="sobre"
-      className="p-8 sm:py-20 relative w-full bg-background text-foreground overflow-hidden"
+      className="px-4 py-20  sm:px-8 relative w-full bg-background text-foreground overflow-hidden"
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div
-          className="w-full flex flex-col lg:w-1/2 space-y-6 sm:space-y-8"
+          className="w-full flex flex-col gap-5 sm:gap-0 lg:w-1/2 space-y-6 sm:space-y-8"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -47,7 +47,7 @@ export default function AboutHero() {
             </button>
           </div>
 
-          <div className="flex flex-wrap justify-center pt-2 items-center gap-x-8 gap-y-8 sm:gap-8 order-4 sm:order-none">
+          <div className="flex flex-wrap justify-center pt-2 items-center gap-x-10 gap-y-8 sm:gap-8 order-4 sm:order-none">
             {marketplaces.map((item, index) => (
               <div
                 key={index}
