@@ -1,14 +1,29 @@
+import { MotionProps } from "framer-motion";
 import { ReactNode } from "react";
 
-// DATA TYPES
-export type FeaturesIncluded = { title: string; description: string }[];
+// NAVIGATION //
 
-export type FaqItem = {
-  question: string;
-  answer: string;
-};
+export interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+}
 
-export type PlanCardData = {
+export interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+// CARDS
+
+export interface ServiceCardProps {
+  image: string;
+  title: string;
+  description: string;
+  features: string[];
+  handleOnClick: () => void;
+}
+
+export type PlanCardProps = {
   title: string;
   oldPrice: string;
   newPrice: string;
@@ -17,8 +32,27 @@ export type PlanCardData = {
   handleOnClick: () => void;
 };
 
+export type FeaturesIncluded = { title: string; description: string }[];
+
+// ABOUT //
+export type ImagePartnersProps = {
+  className?: string;
+};
+
+// FORM //
 export type ContactFormHeaderProps = {
   className?: string;
+};
+
+export type InputFieldProps = {
+  icon: React.ReactNode;
+  placeholder: string;
+  register: any;
+  dark?: boolean;
+};
+
+export type ContactFormProps = {
+  onSucess: () => void;
 };
 
 export type FormValues = {
@@ -29,11 +63,21 @@ export type FormValues = {
   message: string;
 };
 
-// COMPONENTS PROPS
-export interface SidebarProps {
+export type ContactItemProps = {
+  icon: ReactNode;
+  title: string;
+  description: string;
+};
+
+export type ModalTextProps = {
   isOpen: boolean;
   onClose: () => void;
-}
+};
+
+// COMPONENTS //
+export type LogoProps = {
+  customClass?: string;
+};
 
 export interface ButtonProps {
   children: ReactNode;
@@ -43,19 +87,15 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export interface TechCarouselIcon {
-  src: string;
-  name: string;
+export interface FloatingBadgeProps {
+  icon: React.ElementType;
+  text: string;
+  className?: string;
 }
 
-export interface ServiceCardProps {
-  image: string;
-  title: string;
-  description: string;
-  features: string[];
-  handleOnClick: () => void;
-}
+export type MotionDivProps = MotionProps & {
+  children?: ReactNode;
+  className?: string;
+};
 
-export interface PlanCardProps extends PlanCardData {}
-
-export interface FaqItemProps extends FaqItem {}
+// export interface PlanCardProps extends PlanCardProps {}

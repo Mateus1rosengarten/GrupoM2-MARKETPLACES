@@ -1,21 +1,20 @@
 import React from "react";
 import StarsBackground from "../components/ui/StarsBackground";
 import Button from "../components/ui/Button";
-import { sendWhatsApp } from "../utils/whatsapp";
-import { WHATSAPP_MESSAGES } from "../data/data";
 import { FloatingBadge } from "../components/ui/FloatingBadge";
 import { Blocks } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { sendWhatsApp, WHATSAPP_MESSAGES } from "../utils/whatsapp";
+import { fadeRight, fadeUp } from "../data/framer-motion-variants";
+import MotionDiv from "../components/ui/MotionDiv";
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="flex py-20 sm:py-40 md:px-8 xl:px-32">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10"
-      >
-        <motion.div
+    <section
+      id="home"
+      className="flex py-20 sm:py-40 md:px-8 xl:px-32 bg-background"
+    >
+      <MotionDiv className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10">
+        <MotionDiv
           variants={fadeUp}
           className="flex flex-col gap-8 sm:gap-4 2xl:gap-10 max-w-[92vw] xl:max-w-[50vw]"
         >
@@ -26,7 +25,7 @@ const Hero: React.FC = () => {
             <span className="text-brand">rentabilidade</span>
           </h1>
 
-          <span className="font-inter text-lg text-gray-300 leading-relaxed mb-2">
+          <span className="font-inter text-lg text-muted leading-relaxed mb-2">
             Gestão para marketplaces com inteligência financeira unindo operação
             e controle para escalar vendas com{" "}
             <span className="font-bold font-varela text-foreground text-xl sm:text-2xl">
@@ -47,8 +46,8 @@ const Hero: React.FC = () => {
               </Button>
             </a>
           </div>
-        </motion.div>
-        <motion.div
+        </MotionDiv>
+        <MotionDiv
           variants={fadeRight}
           className="relative w-full xl:w-1/2 flex flex-col justify-center"
         >
@@ -57,36 +56,18 @@ const Hero: React.FC = () => {
             icon={Blocks}
             className="absolute -bottom-1 sm:bottom-0 left-4 sm:left-5"
           />
-          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[83%] h-[80%] sm:h-[100%] bg-foreground rounded-tl-2xl rounded-br-2xl"></div>
+          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[83%] h-[80%] sm:h-[100%] bg-white shadow-2xl rounded-tl-2xl rounded-br-2xl"></div>
 
           <img
-            src="/images/sectionsImages/hero-pic.png"
+            src="/images/section/hero-pic.png"
             alt="Gestão de vendas"
             className="relative z-10 w-full max-w-[600px] h-auto object-contain"
           />
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
       <StarsBackground />
     </section>
   );
 };
 
 export default Hero;
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
-
-const fadeRight: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 1 },
-  },
-};

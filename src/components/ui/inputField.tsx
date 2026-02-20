@@ -1,11 +1,5 @@
 import React from "react";
-
-type InputFieldProps = {
-  icon: React.ReactNode;
-  placeholder: string;
-  register: any;
-  dark?: boolean;
-};
+import { InputFieldProps } from "../../data/types";
 
 function InputField({ icon, placeholder, register, dark }: InputFieldProps) {
   return (

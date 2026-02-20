@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../ui/Button";
 import { PlanCardProps } from "../../data/types";
+import MotionDiv from "../ui/MotionDiv";
+import { plans } from "../../data/framer-motion-variants";
 
 const PlanCard: React.FC<PlanCardProps> = ({
   title,
@@ -15,12 +17,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
   const [tooltipIndex, setTooltipIndex] = useState<number | null>(null);
 
   return (
-    <motion.div
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-foreground p-4 sm:p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
+    <MotionDiv
+      variants={plans}
+      className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-white p-4 sm:p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
         ${title === "M2 TURBO" && "sm:!scale-105 border-2 border-brand shadow-3xl"}`}
     >
       {title === "M2 TURBO" && (
@@ -56,14 +55,11 @@ const PlanCard: React.FC<PlanCardProps> = ({
         <span className="font-varela text-muted-light">/mês</span>
       </div>
 
-      <p className="mb-6 font-inter text-sm text-muted-light">{description}</p>
+      <p className="mb-6 font-inter text-sm text-muted">{description}</p>
 
       <ul className="mb-6 space-y-3 font-inter">
         {featuresIncluded.map((feature, index) => (
-          <li
-            key={feature.title}
-            className="relative flex items-start gap-2 text-background"
-          >
+          <li key={feature.title} className="relative flex items-start gap-2">
             <CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-brand" />
 
             <p className="m-0 text-sm leading-snug">
@@ -105,7 +101,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
         </span>
       </Button>
 
-      <ul className="mt-4 space-y-4 p-2 font-inter text-xs text-muted-light">
+      <ul className="mt-4 space-y-4 p-2 font-inter text-xs text-muted">
         <li>
           *Nossos planos são modelos flexíveis e podem ser personalizados após
           um diagnóstico gratuito, conforme as necessidades reais do seu
@@ -116,7 +112,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
           taxa rescisória.
         </li>
       </ul>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

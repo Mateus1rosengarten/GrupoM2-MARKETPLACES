@@ -5,6 +5,7 @@ import { ChevronLeft, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import Sidebar from "./SideBar";
 import NavLink from "../../components/ui/NavLink";
+import ThemeToggle from "../../components/ui/Toggle";
 
 const Navbar: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,7 +31,8 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          <div className="hidden md:block ml-auto">
+          <div className="hidden md:flex gap-5 ml-auto">
+            <ThemeToggle />
             <Button
               onClick={() =>
                 document

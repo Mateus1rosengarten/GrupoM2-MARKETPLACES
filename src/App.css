@@ -8,6 +8,24 @@
   display: inline-block;
 }
 
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --card: #0d0d0d;
+  --border: #1f2937;
+  --primary: #ffaa00;
+  --muted: #9ca3af;
+}
+
+.light {
+  --bg: #f1f5f9;
+  --text: #111827;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --primary: #ffaa00;
+  --muted: #6b7280;
+}
+
 .highlight-marker::before {
   .highlighted-text {
     position: relative;

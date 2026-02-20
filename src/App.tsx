@@ -1,13 +1,13 @@
 import "./App.css";
+import "./index.css";
 import Footer from "./sections/navigation/Footer";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
 import Navbar from "./sections/navigation/Navbar";
-import Hero from "./sections/Hero";
 import Services from "./sections/Services";
-import About from "./sections/About";
+import About from "./sections/about/About";
 import Plans from "./sections/Plans";
-
-import Contact from "./sections/Contact";
+import Hero from "./sections/Hero";
+import Contact from "./sections/contact/Contact";
 
 function App() {
   return (

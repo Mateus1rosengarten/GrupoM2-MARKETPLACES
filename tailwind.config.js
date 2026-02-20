@@ -7,12 +7,12 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        background: "#000000",
-        foreground: "#FFFFFF",
-        brand: "#FFAA00",
-        surface: "#0D0D0D",
-        lightTheme: "#F1F5F9",
-        muted: { light: "#6B7280", dark: "#9CA3AF" },
+        background: "var(--bg)",
+        foreground: "var(--text)",
+        surface: "var(--card)",
+        brand: "var(--primary)",
+        border: "var(--border)",
+        muted: "var(--muted)",
       },
       theme: {},
 

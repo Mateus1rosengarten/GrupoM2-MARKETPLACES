@@ -1,7 +1,4 @@
-interface NavLinkProps {
-  href: string;
-  children: React.ReactNode;
-}
+import { NavLinkProps } from "../../data/types";
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   <a

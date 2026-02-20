@@ -1,16 +1,11 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import React from "react";
 import Logo from "../../components/ui/Logo";
-import { motion } from "framer-motion";
+import MotionDiv from "../../components/ui/MotionDiv";
 
 const Footer: React.FC = () => {
   return (
-    <motion.footer
-      className="bg-background relative bottom-0 text-foreground py-20 px-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 5, ease: "easeOut" }}
-    >
+    <MotionDiv className="bg-white relative bottom-0 text-foreground py-20 px-6">
       <div className="max-w-7xl mx-auto flex flex-col space-y-6 md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0 font-varela text-xl font-bold ml-1">
           <Logo customClass="opacity-30" />
@@ -77,7 +72,7 @@ const Footer: React.FC = () => {
       <p className="text-center text-xs text-foreground/50 mt-8">
         © {new Date().getFullYear()} Grupo M2. Todos os direitos reservados.
       </p>
-    </motion.footer>
+    </MotionDiv>
   );
 };
 

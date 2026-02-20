@@ -1,8 +1,4 @@
-interface FloatingBadgeProps {
-  icon: React.ElementType;
-  text: string;
-  className?: string;
-}
+import { FloatingBadgeProps } from "../../data/types";
 
 export function FloatingBadge({
   icon: Icon,
@@ -12,7 +8,7 @@ export function FloatingBadge({
   return (
     <div
       className={`
-        absolute bg-brand/70 backdrop-blur-md text-background font-inter
+        absolute bg-brand backdrop-blur-md text-background font-inter
         py-2 px-3 sm:p-4 rounded-2xl shadow-xl 
         flex items-center gap-2 sm:gap-3 z-10
         ${className}
