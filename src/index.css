@@ -12,22 +12,45 @@ body {
 
 :root {
   --bg: #000000;
+  --bg-alt: #000000;
   --text: #ffffff;
-  --card: #0d0d0d;
+  --surface: #0d0d0d;
   --border: #1f2937;
   --primary: #ffaa00;
   --muted: #9ca3af;
 }
 
 .light {
-  --bg: #f5f7fa;
-  --text: #111827;
-  --card: #f5f7fa;
+  --bg: #faf7f2;
+  --bg-alt: #fffbee;
+  --text: #1a1a1a;
+  --surface: #faf7f2;
   --border: #e5e7eb;
-  --primary: #ffaa00;
-  --muted: #6b7280;
+  --primary: #f59e0b;
+  --muted: #374151;
 }
 
+.light .light-gradient {
+  background: linear-gradient(to bottom, #faf7f2 80%, #ffffff 100%);
+}
+
+.light .hero-light-texture {
+  background-image: url("/public/images/section/t.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 2000px;
+}
+
+.light .shadow-light {
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.light .border-light {
+  border: solid 2px;
+  border-color: #ffaa00;
+}
 html {
   scroll-padding-top: 206px;
 }

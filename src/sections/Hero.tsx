@@ -6,13 +6,18 @@ import { Blocks } from "lucide-react";
 import { sendWhatsApp, WHATSAPP_MESSAGES } from "../utils/whatsapp";
 import { fadeRight, fadeUp } from "../data/framer-motion-variants";
 import MotionDiv from "../components/ui/MotionDiv";
+import { useTheme } from "../context/ThemeContext";
+import LightTexture from "../components/ui/lightTexture";
 
 const Hero: React.FC = () => {
+  const { lightMode } = useTheme();
+
   return (
     <section
       id="home"
-      className="flex py-20 sm:py-40 md:px-8 xl:px-32 bg-background"
+      className="relative overflow-hidden flex py-20 sm:py-40 md:px-8 xl:px-32 bg-background"
     >
+      {lightMode && <LightTexture />}
       <MotionDiv className="container flex flex-col sm:gap-y-8 lg:flex-row mt-20 items-center z-10">
         <MotionDiv
           variants={fadeUp}
@@ -41,9 +46,7 @@ const Hero: React.FC = () => {
               <span>DIAGNÓSTICO GRATUITO</span>
             </Button>
             <a href="#planos">
-              <Button customClass="bg-foreground !text-background opacity-90 hover:opacity-100">
-                PLANOS
-              </Button>
+              <Button customClass="bg-foreground !text-surface">PLANOS</Button>
             </a>
           </div>
         </MotionDiv>
@@ -56,7 +59,7 @@ const Hero: React.FC = () => {
             icon={Blocks}
             className="absolute -bottom-1 sm:bottom-0 left-4 sm:left-5"
           />
-          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[83%] h-[80%] sm:h-[100%] bg-white shadow-2xl rounded-tl-2xl rounded-br-2xl"></div>
+          <div className="absolute bottom-0 right-9 sm:right-0 w-[85%] lg:w-[83%] h-[80%] sm:h-[100%] bg-white shadow-2xl border-light rounded-tl-2xl rounded-br-2xl"></div>
 
           <img
             src="/images/section/hero-pic.png"
@@ -65,7 +68,7 @@ const Hero: React.FC = () => {
           />
         </MotionDiv>
       </MotionDiv>
-      <StarsBackground />
+      {!lightMode && <StarsBackground />}
     </section>
   );
 };

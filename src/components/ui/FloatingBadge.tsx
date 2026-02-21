@@ -8,8 +8,8 @@ export function FloatingBadge({
   return (
     <div
       className={`
-        absolute bg-brand backdrop-blur-md text-background font-inter
-        py-2 px-3 sm:p-4 rounded-2xl shadow-xl 
+        absolute bg-brand backdrop-blur-md text-foreground font-inter
+        py-2 px-3 sm:p-4 rounded-2xl shadow-xl shadow-light
         flex items-center gap-2 sm:gap-3 z-10
         ${className}
       `}

@@ -1,71 +1,34 @@
-import { Facebook, Instagram, Linkedin } from "lucide-react";
-import React from "react";
 import Logo from "../../components/ui/Logo";
 import MotionDiv from "../../components/ui/MotionDiv";
+import { useTheme } from "../../context/ThemeContext";
+import { navLinks, socialLinks } from "../../data/navigation";
 
-const Footer: React.FC = () => {
+const Footer = () => {
+  const { lightMode } = useTheme();
+
   return (
-    <MotionDiv className="bg-white relative bottom-0 text-foreground py-20 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col space-y-6 md:flex-row justify-between items-center">
-        <div className="mb-4 md:mb-0 font-varela text-xl font-bold ml-1">
-          <Logo customClass="opacity-30" />
-        </div>
+    <MotionDiv className="bg-background relative bottom-0 text-foreground py-20 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <Logo lightMode={lightMode} customClass="opacity-30" />
 
-        <nav className="flex space-x-6 text-sm">
-          <a
-            href="#home"
-            className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
-          >
-            Home
-          </a>
-          <a
-            href="#servicos"
-            className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
-          >
-            Serviços
-          </a>
-          <a
-            href="#sobre"
-            className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
-          >
-            Sobre
-          </a>
-          <a
-            href="#planos"
-            className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
-          >
-            Planos
-          </a>
-          <a
-            href="#contato"
-            className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
-          >
-            Contato
-          </a>
+        <nav className="flex gap-6 text-sm">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="inline-block hover:text-brand transition-transform duration-default hover:scale-zoom"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="flex space-x-6 mt-8 md:mt-0 mr-1">
-          <a
-            href="https://www.facebook.com/seuperfil"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Facebook />
-          </a>
-          <a
-            href="https://www.instagram.com/somosgrupom2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Instagram />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/seuperfil"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin />
-          </a>
+        <div className="flex gap-6">
+          {socialLinks.map(({ href, icon: Icon }) => (
+            <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+              <Icon />
+            </a>
+          ))}
         </div>
       </div>
 

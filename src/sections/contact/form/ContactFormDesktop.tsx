@@ -48,7 +48,7 @@ export default function ContactFormCard({ onSucess }: ContactFormProps) {
         />
       </motion.form>
 
-      <div className="relative h-72 lg:h-auto">
+      <div className="relative h-72 lg:h-auto border-light">
         <img
           src="/images/section/escritorio.png"
           alt="Ambiente de trabalho"

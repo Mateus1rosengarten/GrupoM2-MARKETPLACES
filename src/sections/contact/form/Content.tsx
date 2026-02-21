@@ -63,7 +63,7 @@ const InputFieldForm = ({
         {errors.message && <ErrorText text={errors.message.message} />}
       </div>
       <p
-        className={`sm:mt-2 sm:mb-6 text-xs font-inter ml-2 sm:ml-2 ${className}`}
+        className={`sm:mt-2 sm:mb-6 text-xs text-surface font-inter ml-2 sm:ml-2 ${className}`}
       >
         *Seus dados estão protegidos conforme a{" "}
         <a

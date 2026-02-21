@@ -1,8 +1,11 @@
 import React from "react";
 import Logo from "../../components/ui/Logo";
 import { SidebarProps } from "../../data/types";
+import { useTheme } from "../../context/ThemeContext";
+import ThemeToggle from "../../components/ui/Toggle";
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+  const { lightMode } = useTheme();
   return (
     <div
       className={`fixed top-0 left-0 w-full h-full bg-background text-foreground z-50 transform transition-transform duration-300 ${
@@ -10,10 +13,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       }`}
     >
       <div className="flex justify-between items-center p-6">
-        <Logo />
-        <button onClick={onClose} className="text-brand text-4xl font-bold">
+        <Logo lightMode={lightMode} />
+        <button onClick={onClose} className="text-brand text-2xl font-bold">
           ✕
         </button>
+      </div>
+      <div className="ml-8">
+        <ThemeToggle />
       </div>
 
       <ul className="flex flex-col items-center mt-16 space-y-10 text-2xl font-varela">

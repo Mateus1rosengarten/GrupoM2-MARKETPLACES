@@ -19,7 +19,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
   return (
     <MotionDiv
       variants={plans}
-      className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-white p-4 sm:p-6 text-left text-gray-800 shadow-xl transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
+      className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-white p-4 sm:p-6 text-left text-gray-800 shadow-xl shadow-light transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
         ${title === "M2 TURBO" && "sm:!scale-105 border-2 border-brand shadow-3xl"}`}
     >
       {title === "M2 TURBO" && (

@@ -11,7 +11,7 @@ const ImagePartners = ({ className }: ImagePartnersProps) => {
         variants={fadeLeft}
         className={`relative w-full lg:w-1/2 flex items-start  ${className}`}
       >
-        <div className="absolute bottom-1 right-0 w-[80%] lg:w-[75%] h-full bg-white shadow-2xl rounded-r-2xl order-2"></div>
+        <div className="absolute bottom-1 right-0 w-[80%] lg:w-[75%] h-full bg-white shadow-light  rounded-r-2xl order-2"></div>
 
         <FloatingBadge
           icon={TrendingUp}

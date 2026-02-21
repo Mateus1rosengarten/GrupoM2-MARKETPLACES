@@ -1,7 +1,7 @@
 import { Contact, Phone, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { FloatingBadge } from "../../components/ui/FloatingBadge";
-import ContactItem from "./ContactItem";
+import ContactItem from "../../components/ui/ContactItem";
 import ContactFormCard from "./form/ContactFormDesktop";
 import ContactFormMobile from "./form/ContactFormMobile";
 import SuccessModal from "./SucessModal";
@@ -14,7 +14,7 @@ export default function ContactSection() {
   return (
     <section
       id="contato"
-      className="relative bg-white text-foreground py-24 px-2 md:px-6 lg:px-20 2xl:px-36"
+      className="relative bg-surface text-foreground py-24 px-2 md:px-6 lg:px-20 2xl:px-36"
     >
       <div className="mx-auto flex flex-col gap-20">
         <MotionDiv variants={contact} className="px-2 md:px-6 lg:px-0">

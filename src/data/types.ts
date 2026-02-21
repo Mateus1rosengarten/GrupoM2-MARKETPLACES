@@ -77,6 +77,7 @@ export type ModalTextProps = {
 // COMPONENTS //
 export type LogoProps = {
   customClass?: string;
+  lightMode: boolean;
 };
 
 export interface ButtonProps {

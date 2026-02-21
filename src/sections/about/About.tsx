@@ -8,7 +8,7 @@ export default function AboutHero() {
   return (
     <section
       id="sobre"
-      className="px-4 py-16 sm:px-8 relative w-full bg-background text-foreground overflow-hidden"
+      className="px-4 py-16 sm:px-8 relative w-full bg-surface text-foreground overflow-hidden"
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <MotionDiv
@@ -32,14 +32,14 @@ export default function AboutHero() {
               onClick={() =>
                 sendWhatsApp(WHATSAPP_MESSAGES.diagnosticoGratuito)
               }
-              className="font-inter bg-brand sm:bg-background sm:bg-none sm:hover:bg-brand transition px-6 py-3 rounded-full font-medium"
+              className="font-inter bg-brand sm:bg-background sm:bg-none sm:hover:bg-brand shadow-light transition px-6 py-3 rounded-full font-medium"
             >
               Fale Conosco
             </button>
 
             <button
               onClick={() => sendWhatsApp(WHATSAPP_MESSAGES.servicos)}
-              className="border font-inter border-brand/80 hover:border-primary hover:text-primary transition px-6 py-3 rounded-full font-medium"
+              className="border font-inter border-foreground hover:border-brand hover:text-primary shadow-light transition px-6 py-3 rounded-full font-medium"
             >
               Conhecer Serviços
             </button>
@@ -49,7 +49,7 @@ export default function AboutHero() {
             {marketplaces.map((item, index) => (
               <div
                 key={index}
-                className="flex justify-center py-3 w-20 border border-brand/80 rounded-xl bg-foreground/90 cursor-pointer hover:bg-foreground/20 transition-all duration-300"
+                className="flex justify-center py-3 w-20 bg-white border border-brand/80 rounded-xl shadow-light bg-foreground/90 cursor-pointer hover:bg-foreground/20 transition-all duration-300"
               >
                 <img
                   src={item.src}

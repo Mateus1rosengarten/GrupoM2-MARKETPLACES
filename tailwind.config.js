@@ -3,19 +3,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        varela: ["Varela Round", "sans-serif"],
+        varela: ["varela", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
       colors: {
         background: "var(--bg)",
+        alternate: "var(--bg-alt)",
         foreground: "var(--text)",
-        surface: "var(--card)",
+        surface: "var(--surface)",
         brand: "var(--primary)",
         border: "var(--border)",
         muted: "var(--muted)",
       },
-      theme: {},
-
       spacing: {
         pxmobile: "1.5rem",
       },

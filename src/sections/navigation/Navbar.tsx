@@ -6,21 +6,24 @@ import { motion } from "framer-motion";
 import Sidebar from "./SideBar";
 import NavLink from "../../components/ui/NavLink";
 import ThemeToggle from "../../components/ui/Toggle";
+import { navLinks } from "../../data/navigation";
+import { useTheme } from "../../context/ThemeContext";
 
 const Navbar: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { lightMode } = useTheme();
 
   return (
     <>
       <motion.nav
-        className="bg-background text-foreground w-full fixed top-0 left-0 z-20 py-6 sm:py-8"
+        className="bg-background light-gradient text-foreground w-full fixed top-0 left-0 z-20 py-6 sm:py-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="w-full flex items-center justify-center px-8 lg:px-8 2xl:px-32">
           <div className="flex-shrink-0 mr-auto">
-            <Logo />
+            <Logo lightMode={lightMode} />
           </div>
 
           <ul className="hidden md:flex font-inter font-medium text-base sm:space-x-6 lg:space-x-10">
@@ -62,11 +65,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#planos", label: "Planos" },
-  { href: "#contato", label: "Contato" },
-];
