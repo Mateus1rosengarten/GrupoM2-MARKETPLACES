@@ -1,5 +1,6 @@
 import { ServiceCardProps } from "./types";
-import { sendWhatsApp, WHATSAPP_MESSAGES } from "../utils/whatsapp";
+import { WHATSAPP_MESSAGES } from "../utils/whatsapp";
+import { sendWhatsApp } from "../utils/functions";
 
 export const serviceCards: ServiceCardProps[] = [
   {

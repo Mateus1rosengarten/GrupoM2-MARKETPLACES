@@ -1,4 +1,5 @@
-import { sendWhatsApp, WHATSAPP_MESSAGES } from "../utils/whatsapp";
+import { sendWhatsApp } from "../utils/functions";
+import { WHATSAPP_MESSAGES } from "../utils/whatsapp";
 import { FeaturesIncluded, PlanCardProps } from "./types";
 
 export const essencial: FeaturesIncluded = [

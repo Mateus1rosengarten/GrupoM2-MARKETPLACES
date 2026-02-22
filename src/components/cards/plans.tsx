@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "../ui/Button";
 import { PlanCardProps } from "../../data/types";
 import MotionDiv from "../ui/MotionDiv";
-import { plans } from "../../data/framer-motion-variants";
+import { staggerContainer } from "../../data/framer-motion-variants";
 
 const PlanCard: React.FC<PlanCardProps> = ({
   title,
@@ -18,7 +18,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
 
   return (
     <MotionDiv
-      variants={plans}
+      variants={staggerContainer}
       className={`group relative mx-auto h-full w-full max-w-sm transform cursor-pointer hover:!scale-105 rounded-2xl border bg-white p-4 sm:p-6 text-left text-gray-800 shadow-xl shadow-light transition-all duration-default ease-in-out md:mb-8 lg:mb-0 md:max-w-[600px] lg:max-w-[320px] xl:max-w-sm 2xl:max-w-md
         ${title === "M2 TURBO" && "sm:!scale-105 border-2 border-brand shadow-3xl"}`}
     >
@@ -117,13 +117,3 @@ const PlanCard: React.FC<PlanCardProps> = ({
 };
 
 export default PlanCard;
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" as any },
-  },
-};

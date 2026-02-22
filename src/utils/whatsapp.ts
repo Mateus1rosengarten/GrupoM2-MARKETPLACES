@@ -1,9 +1,3 @@
-export function sendWhatsApp(message: string) {
-  const phone = "5511988504105";
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
-}
-
 export const WHATSAPP_MESSAGES = {
   diagnosticoGratuito:
     "Olá! Gostaria de solicitar um diagnóstico gratuito para entender melhor como posso melhorar meus resultados digitais.",

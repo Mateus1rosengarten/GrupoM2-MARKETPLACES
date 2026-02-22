@@ -8,10 +8,12 @@ import About from "./sections/about/About";
 import Plans from "./sections/Plans";
 import Hero from "./sections/Hero";
 import Contact from "./sections/contact/Contact";
+import CookieBanner from "./components/ui/Cookie";
 
 function App() {
   return (
     <>
+      <CookieBanner />
       <Navbar />
       <Hero />
       <Services />

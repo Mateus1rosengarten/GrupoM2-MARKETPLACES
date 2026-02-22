@@ -5,7 +5,7 @@ import ContactItem from "../../components/ui/ContactItem";
 import ContactFormCard from "./form/ContactFormDesktop";
 import ContactFormMobile from "./form/ContactFormMobile";
 import SuccessModal from "./SucessModal";
-import { contact } from "../../data/framer-motion-variants";
+import { fadeCenter } from "../../data/framer-motion-variants";
 import MotionDiv from "../../components/ui/MotionDiv";
 
 export default function ContactSection() {
@@ -17,7 +17,7 @@ export default function ContactSection() {
       className="relative bg-surface text-foreground py-24 px-2 md:px-6 lg:px-20 2xl:px-36"
     >
       <div className="mx-auto flex flex-col gap-20">
-        <MotionDiv variants={contact} className="px-2 md:px-6 lg:px-0">
+        <MotionDiv variants={fadeCenter} className="px-2 md:px-6 lg:px-0">
           <FloatingBadge
             icon={Contact}
             text="Fale Conosco"

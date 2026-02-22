@@ -3,11 +3,12 @@ import StarsBackground from "../components/ui/StarsBackground";
 import Button from "../components/ui/Button";
 import { FloatingBadge } from "../components/ui/FloatingBadge";
 import { Blocks } from "lucide-react";
-import { sendWhatsApp, WHATSAPP_MESSAGES } from "../utils/whatsapp";
+import { WHATSAPP_MESSAGES } from "../utils/whatsapp";
 import { fadeRight, fadeUp } from "../data/framer-motion-variants";
 import MotionDiv from "../components/ui/MotionDiv";
 import { useTheme } from "../context/ThemeContext";
 import LightTexture from "../components/ui/lightTexture";
+import { sendWhatsApp } from "../utils/functions";
 
 const Hero: React.FC = () => {
   const { lightMode } = useTheme();

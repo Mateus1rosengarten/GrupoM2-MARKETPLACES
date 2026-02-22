@@ -1,8 +1,9 @@
 import ImagePartners from "./ImagePartners";
-import { sendWhatsApp, WHATSAPP_MESSAGES } from "../../utils/whatsapp";
+import { WHATSAPP_MESSAGES } from "../../utils/whatsapp";
 import { marketplaces } from "../../data/about";
-import { about } from "../../data/framer-motion-variants";
+import { fadeCenter } from "../../data/framer-motion-variants";
 import MotionDiv from "../../components/ui/MotionDiv";
+import { sendWhatsApp } from "../../utils/functions";
 
 export default function AboutHero() {
   return (
@@ -12,7 +13,7 @@ export default function AboutHero() {
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <MotionDiv
-          variants={about}
+          variants={fadeCenter}
           className="w-full flex flex-col gap-5 sm:gap-0 lg:w-1/2 space-y-6 sm:space-y-8"
         >
           <h1 className="text-4xl font-varela lg:text-6xl font-bold order-1 sm:order-none ">
