@@ -1,5 +1,6 @@
 import { ContactFormData } from "./zodSchema";
 import { sendContactEmail } from "./emailjs";
+import { whatsPhone } from "./whatsapp";
 
 export const handleContactSubmit = async (
   data: ContactFormData,
@@ -20,7 +21,6 @@ export const handleContactSubmit = async (
 };
 
 export function sendWhatsApp(message: string) {
-  const phone = "5511991640530";
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${whatsPhone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }

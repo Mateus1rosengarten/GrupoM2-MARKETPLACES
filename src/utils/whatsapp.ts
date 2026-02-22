@@ -29,3 +29,5 @@ export const WHATSAPP_MESSAGES = {
   servicos:
     "Olá! Tenho interesse de entender mais sobre os serviços prestados e benefícios inclusos.",
 };
+
+export const whatsPhone = "5511991640530";

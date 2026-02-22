@@ -17,7 +17,7 @@ const ContactFormHeader = ({
       </div>
 
       <h3
-        className={`relative text-xl sm:text-2xl text-surface font-varela font-semibold ml-1 sm:ml-0 ${className}`}
+        className={`relative text-xl sm:text-2xl text-black font-varela font-semibold ml-1 sm:ml-0 ${className}`}
       >
         FALE COM NOSSA <span className="text-brand">EQUIPE</span>
       </h3>
