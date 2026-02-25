@@ -5,17 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./context/ThemeContext";
 import { initGA } from "./utils/ga";
+import { BrowserRouter } from "react-router-dom";
 
 initGA();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <BrowserRouter>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </React.StrictMode>
+  </BrowserRouter>
+  // </React.StrictMode>
 );
 
 reportWebVitals();

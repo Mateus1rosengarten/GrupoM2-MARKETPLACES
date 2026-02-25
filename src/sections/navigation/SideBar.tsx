@@ -3,6 +3,7 @@ import Logo from "../../components/ui/Logo";
 import { SidebarProps } from "../../data/types";
 import { useTheme } from "../../context/ThemeContext";
 import ThemeToggle from "../../components/ui/Toggle";
+import { navLinks } from "../../data/navigation";
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { lightMode } = useTheme();
@@ -21,44 +22,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <div className="ml-8">
         <ThemeToggle />
       </div>
-
       <ul className="flex flex-col items-center mt-16 space-y-10 text-2xl font-varela">
-        <li>
-          <a
-            href="#home"
-            className="hover:text-brand transition"
-            onClick={onClose}
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#sobre"
-            className="hover:text-brand transition"
-            onClick={onClose}
-          >
-            Sobre
-          </a>
-        </li>
-        <li>
-          <a
-            href="#servicos"
-            className="hover:text-brand transition"
-            onClick={onClose}
-          >
-            Serviços
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contato"
-            className="hover:text-brand transition"
-            onClick={onClose}
-          >
-            Contato
-          </a>
-        </li>
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              className="hover:text-brand transition"
+              onClick={onClose}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

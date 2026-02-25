@@ -99,4 +99,8 @@ export type MotionDivProps = MotionProps & {
   className?: string;
 };
 
-// export interface PlanCardProps extends PlanCardProps {}
+export interface SectionProps {
+  title: string;
+  children: React.ReactNode;
+  highlight?: boolean;
+}
